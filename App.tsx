@@ -18,6 +18,10 @@ export default function App() {
     setHasPermission(status === 'granted');
   };
 
+  if (!hasPermission) {
+    return <View></View>
+  }
+
   return (
     <View>
       <StatusBar style="auto" />
