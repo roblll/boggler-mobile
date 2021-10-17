@@ -6,7 +6,13 @@ import { Camera } from 'expo-camera'
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
 export default function App() {
-  const [hasPermission, setHasPermission] = useState(null);
+  
+  const [hasPermission, setHasPermission] = useState<boolean>(false);
+
+  const onHandlePermission = async () => {
+    const { status } = await Camera.requestPermissionsAsync();
+    setHasPermission(status === 'granted');
+  };
 
   return (
     <View>
