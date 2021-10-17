@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Dimensions } from 'react-native';
 import { Camera } from 'expo-camera'
 
@@ -8,6 +8,10 @@ const WINDOW_WIDTH = Dimensions.get('window').width;
 export default function App() {
   
   const [hasPermission, setHasPermission] = useState<boolean>(false);
+
+  useEffect(() => {
+    onHandlePermission();
+  }, []);
 
   const onHandlePermission = async () => {
     const { status } = await Camera.requestPermissionsAsync();
