@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 const Button = () => {
   return (
-    <View style={styles.container}></View>
+    <TouchableOpacity style={styles.container}>
+      <Text>SOLVE</Text>
+    </TouchableOpacity>
   );
 }
 
@@ -12,6 +14,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     height: 100,
     width: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
