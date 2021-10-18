@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Dimensions } from 'react-native';
 import { Camera } from 'expo-camera'
 
+import Button from './components/Button'
+
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
 export default function App() {
@@ -31,6 +33,7 @@ export default function App() {
         }}
         style={{ height: WINDOW_WIDTH, width: WINDOW_WIDTH}}
       />
+      <Button />
     </View>
   );
 }
