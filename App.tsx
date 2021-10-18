@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Dimensions } from 'react-native';
 import { Camera } from 'expo-camera'
 
+import { getURI } from './utils/utils'
+
 import Button from './components/Button'
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
@@ -25,7 +27,8 @@ const App = () => {
       const options = { base64: true };
       const data = await cameraRef.current.takePictureAsync(options);
       const source = data.base64;
-      console.log(source)
+      const uri = getURI()
+      console.log(uri)
     }
   }
 

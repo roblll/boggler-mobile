@@ -8,4 +8,5 @@ export const getURI =  () => {
   } else {
     // prod uri
   }
+  return uri
 }
