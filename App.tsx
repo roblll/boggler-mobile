@@ -20,6 +20,10 @@ const App = () => {
     setHasPermission(status === 'granted');
   };
 
+  const onSnap = async () => {
+    alert('Snap')
+  }
+
   if (!hasPermission) {
     return <View></View>
   }
@@ -33,7 +37,7 @@ const App = () => {
         }}
         style={{ height: WINDOW_WIDTH, width: WINDOW_WIDTH}}
       />
-      <Button />
+      <Button onClick={onSnap} />
     </View>
   );
 }

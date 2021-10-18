@@ -1,9 +1,16 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const Button = () => {
+type Props = {
+  onClick: () => void;
+}
+
+const Button: React.FC<Props> = ({ onClick }) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={onClick}
+    >
       <Text>SOLVE</Text>
     </TouchableOpacity>
   );
