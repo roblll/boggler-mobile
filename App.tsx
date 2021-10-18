@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, Dimensions } from 'react-native';
 import { Camera } from 'expo-camera'
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
 export default function App() {
-  
+  const cameraRef = useRef<Camera | null>();
   const [hasPermission, setHasPermission] = useState<boolean>(false);
 
   useEffect(() => {
@@ -26,6 +26,9 @@ export default function App() {
     <View>
       <StatusBar style="auto" />
       <Camera 
+        ref={(camera) => {
+          cameraRef.current = camera
+        }}
         style={{ height: WINDOW_WIDTH, width: WINDOW_WIDTH}}
       />
     </View>
