@@ -7,7 +7,7 @@ import Button from './components/Button'
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
-export default function App() {
+const App = () => {
   const cameraRef = useRef<Camera | null>();
   const [hasPermission, setHasPermission] = useState<boolean>(false);
 
@@ -37,3 +37,5 @@ export default function App() {
     </View>
   );
 }
+
+export default App

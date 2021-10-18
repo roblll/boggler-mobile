@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-export default function Button() {
+const Button = () => {
   return (
     <View style={styles.container}></View>
   );
@@ -14,3 +14,5 @@ const styles = StyleSheet.create({
     width: 100,
   },
 });
+
+export default Button
