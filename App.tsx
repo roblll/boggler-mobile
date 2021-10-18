@@ -21,7 +21,12 @@ const App = () => {
   };
 
   const onSnap = async () => {
-    alert('Snap')
+    if (cameraRef.current) {
+      const options = { base64: true };
+      const data = await cameraRef.current.takePictureAsync(options);
+      const source = data.base64;
+      console.log(source)
+    }
   }
 
   if (!hasPermission) {
