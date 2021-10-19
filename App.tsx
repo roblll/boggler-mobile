@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Dimensions } from 'react-native';
+import { View, Dimensions, Platform } from 'react-native';
 import { Camera } from 'expo-camera'
 
 import { getURI } from './utils/utils'
@@ -49,8 +49,11 @@ const App = () => {
     }
   }
 
-  const prepareRatio = () => {
-    console.log("prepare ratio")
+  const prepareRatio = async () => {
+    if (Platform.OS === 'android') {
+      const ratios = await cameraRef.current?.getSupportedRatiosAsync();
+      console.log(ratios)
+    }
   }
 
   if (!hasPermission) {
