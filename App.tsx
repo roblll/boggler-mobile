@@ -49,6 +49,10 @@ const App = () => {
     }
   }
 
+  const prepareRatio = () => {
+    console.log("prepare ratio")
+  }
+
   if (!hasPermission) {
     return <View></View>
   }
@@ -61,6 +65,7 @@ const App = () => {
           cameraRef.current = camera
         }}
         style={{ height: WINDOW_WIDTH, width: WINDOW_WIDTH}}
+        onCameraReady={prepareRatio}
       />
       <Button onClick={onSnap} />
     </View>
