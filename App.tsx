@@ -27,8 +27,25 @@ const App = () => {
       const options = { base64: true };
       const data = await cameraRef.current.takePictureAsync(options);
       const source = data.base64;
-      const uri = getURI()
-      console.log(uri)
+
+      try {
+        if (source) {
+          const apiUrl = getURI();
+          const response = await fetch(apiUrl, {
+            body: JSON.stringify({ file: source }),
+            headers: {
+              'content-type': 'application/json'
+            },
+            method: 'POST'
+          })
+          const data = await response.json()
+          alert('Upload successful');
+          console.log(data)
+        }
+      } catch (err) {
+        alert('Cannot upload');
+        console.log(err);
+      }
     }
   }
 
