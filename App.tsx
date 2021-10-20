@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Dimensions, Platform } from 'react-native';
+import { View, Dimensions, Platform, Image } from 'react-native';
 import { Camera, Constants } from 'expo-camera'
 
 import { getURI } from './utils/utils'
@@ -84,13 +84,26 @@ const App = () => {
         ref={(camera) => {
           cameraRef.current = camera
         }}
-        style={{ height: WINDOW_WIDTH * aspectRatio, width: WINDOW_WIDTH}}
+        style={{
+          height: WINDOW_WIDTH * aspectRatio,
+          width: WINDOW_WIDTH
+        }}
         onCameraReady={prepareRatio}
         ratio={cameraRatio}
         useCamera2Api={true}
         type={Constants.Type.back}
       />
       <Button onClick={onSnap} />
+      <Image
+        source={require('./assets/grid.png')}
+        style={{
+          position: 'absolute', 
+          left: WINDOW_WIDTH * .1, 
+          top: ((WINDOW_WIDTH * (aspectRatio)) / 2) - (WINDOW_WIDTH * .8 / 2), 
+          height: WINDOW_WIDTH * .8, 
+          width: WINDOW_WIDTH * .8
+        }}
+      />
     </View>
   );
 }
