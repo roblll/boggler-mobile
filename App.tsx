@@ -84,7 +84,7 @@ const App = () => {
         ref={(camera) => {
           cameraRef.current = camera
         }}
-        style={{ height: WINDOW_WIDTH, width: WINDOW_WIDTH}}
+        style={{ height: WINDOW_WIDTH * aspectRatio, width: WINDOW_WIDTH}}
         onCameraReady={prepareRatio}
         ratio={cameraRatio}
         useCamera2Api={true}
