@@ -12,7 +12,7 @@ const WINDOW_WIDTH = Dimensions.get('window').width;
 const App = () => {
   const cameraRef = useRef<Camera | null>();
   const [hasPermission, setHasPermission] = useState<boolean>(false);
-  const [cameraRatio, setCameraRatio] = useState<string | null>(null);
+  const [cameraRatio, setCameraRatio] = useState("");
   const [aspectRatio, setAspectRatio] = useState(1.333)
 
   useEffect(() => {
@@ -86,6 +86,7 @@ const App = () => {
         }}
         style={{ height: WINDOW_WIDTH, width: WINDOW_WIDTH}}
         onCameraReady={prepareRatio}
+        ratio={cameraRatio}
       />
       <Button onClick={onSnap} />
     </View>
