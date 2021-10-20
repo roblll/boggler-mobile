@@ -12,6 +12,8 @@ const WINDOW_WIDTH = Dimensions.get('window').width;
 const App = () => {
   const cameraRef = useRef<Camera | null>();
   const [hasPermission, setHasPermission] = useState<boolean>(false);
+  const [cameraRatio, setCameraRatio] = useState<string | null>(null);
+  const [aspectRatio, setAspectRatio] = useState(1.333)
 
   useEffect(() => {
     onHandlePermission();
@@ -64,10 +66,10 @@ const App = () => {
         const ratio = ratios[ratioIndex]
         const parts = ratio.split(':');
         const aspectRatio = parseInt(parts[0]) / parseInt(parts[1]);
-        console.log(ratio, aspectRatio)
+
+        setCameraRatio(ratio)
+        setAspectRatio(aspectRatio)
       }
-      
-      // const parts = ratio.split(':');
     }
   }
 
