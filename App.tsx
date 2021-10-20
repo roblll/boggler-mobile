@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Dimensions, Platform } from 'react-native';
-import { Camera } from 'expo-camera'
+import { Camera, Constants } from 'expo-camera'
 
 import { getURI } from './utils/utils'
 
@@ -87,6 +87,8 @@ const App = () => {
         style={{ height: WINDOW_WIDTH, width: WINDOW_WIDTH}}
         onCameraReady={prepareRatio}
         ratio={cameraRatio}
+        useCamera2Api={true}
+        type={Constants.Type.back}
       />
       <Button onClick={onSnap} />
     </View>
