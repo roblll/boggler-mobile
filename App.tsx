@@ -52,7 +52,22 @@ const App = () => {
   const prepareRatio = async () => {
     if (Platform.OS === 'android') {
       const ratios = await cameraRef.current?.getSupportedRatiosAsync();
-      console.log(ratios)
+      if (ratios) {
+        let ratioIndex = ratios.findIndex(ratio => ratio === "4:3");
+        if (ratioIndex === -1) {
+          for (let i = 0; i < ratios.length; i++) {
+            if (ratios[i] < ratios[ratioIndex]) {
+              ratioIndex = i
+            }
+          }
+        }
+        const ratio = ratios[ratioIndex]
+        const parts = ratio.split(':');
+        const aspectRatio = parseInt(parts[0]) / parseInt(parts[1]);
+        console.log(ratio, aspectRatio)
+      }
+      
+      // const parts = ratio.split(':');
     }
   }
 
