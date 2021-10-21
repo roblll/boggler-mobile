@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Dimensions, Platform, Image } from 'react-native';
+import { View, Dimensions, Platform, Image, StyleSheet } from 'react-native';
 import { Camera, Constants } from 'expo-camera'
 
 import { getURI } from './utils/utils'
@@ -78,7 +78,7 @@ const App = () => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <StatusBar style="auto" />
       <Camera 
         ref={(camera) => {
@@ -107,5 +107,11 @@ const App = () => {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#f4ae56',
+  },
+});
 
 export default App
