@@ -93,7 +93,9 @@ const App = () => {
         useCamera2Api={true}
         type={Constants.Type.back}
       />
-      <Button onClick={onSnap} />
+      <View style={styles.buttonContainer}>
+        <Button onClick={onSnap} />
+      </View>
       <Image
         source={require('./assets/grid.png')}
         style={{
@@ -110,8 +112,14 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: '#f4ae56',
   },
+  buttonContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });
 
 export default App
