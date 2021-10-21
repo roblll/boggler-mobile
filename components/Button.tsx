@@ -11,19 +11,27 @@ const Button: React.FC<Props> = ({ onClick }) => {
       style={styles.container}
       onPress={onClick}
     >
-      <Text>SOLVE</Text>
+      <Text style={styles.buttonText}>SOLVE</Text>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'red',
+    backgroundColor: '#56d7f4',
     height: 100,
     width: 100,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 50,
+    borderColor: 'white',
+    borderWidth: 4,
   },
+  buttonText: {
+    fontWeight: 'bold',
+    color: 'white',
+    fontSize: 20,
+  }
 });
 
 export default Button
