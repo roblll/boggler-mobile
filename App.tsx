@@ -15,6 +15,7 @@ const App = () => {
   const [cameraRatio, setCameraRatio] = useState("");
   const [aspectRatio, setAspectRatio] = useState(1.333)
   const [showCamera, setShowCamera] = useState<boolean>(true)
+  const [words, setWords] = useState()
 
   useEffect(() => {
     onHandlePermission();
