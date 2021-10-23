@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Dimensions, Platform, Image, StyleSheet, ScrollView, Text } from 'react-native';
-import { Camera, Constants } from 'expo-camera'
+import { View, Dimensions, Platform, Image, StyleSheet } from 'react-native';
+import { Camera, Constants } from 'expo-camera';
 
-import { getURI } from './utils/utils'
+import { getURI } from './utils/utils';
 
-import Button from './components/Button'
+import Button from './components/Button';
+import WordsList from './components/WordsList';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
@@ -113,9 +114,7 @@ const App = () => {
     );
   } else {
     return (
-      <ScrollView>
-        <Text>Words found</Text>
-      </ScrollView>
+      <WordsList />
     )
   }
 }
