@@ -114,7 +114,7 @@ const App = () => {
     );
   } else {
     return (
-      <WordsList />
+      <WordsList words={["test1", "test2"]} />
     )
   }
 }
