@@ -16,7 +16,7 @@ const App = () => {
   const [cameraRatio, setCameraRatio] = useState("");
   const [aspectRatio, setAspectRatio] = useState(1.333)
   const [showCamera, setShowCamera] = useState<boolean>(true)
-  const [words, setWords] = useState()
+  const [words, setWords] = useState([])
 
   useEffect(() => {
     onHandlePermission();
@@ -46,6 +46,8 @@ const App = () => {
           const data = await response.json()
           alert('Upload successful');
           console.log(data)
+          setWords(data.words)
+          setShowCamera(false)
         }
       } catch (err) {
         alert('Cannot upload');
@@ -114,7 +116,7 @@ const App = () => {
     );
   } else {
     return (
-      <WordsList words={["test1", "test2"]} />
+      <WordsList words={words} />
     )
   }
 }
