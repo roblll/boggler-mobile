@@ -6,6 +6,15 @@ type Props = {
 }
 
 const WordsList: React.FC<Props> = ({ words }) => {
+  const getWordsByLength = () => {
+    let wordsByLength = {}
+    words.forEach(word => {
+      console.log(word)
+    })
+  }
+
+  getWordsByLength()
+
   return (
     <View>
       <Text>Words List</Text>
