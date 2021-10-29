@@ -5,12 +5,23 @@ type Props = {
   words: string[];
 }
 
+type WordsByLength = {
+  [key: string]: string[];
+}
+
 const WordsList: React.FC<Props> = ({ words }) => {
   const getWordsByLength = () => {
-    let wordsByLength = {}
+    let wordsByLength: WordsByLength = {}
     words.forEach(word => {
-      console.log(word)
+      let lengthKey = word.length.toString();
+      if (lengthKey in wordsByLength) {
+        wordsByLength[lengthKey].push(word)
+      } else {
+        wordsByLength[lengthKey] = []
+        wordsByLength[lengthKey].push(word)
+      }
     })
+    console.log(wordsByLength)
   }
 
   getWordsByLength()
