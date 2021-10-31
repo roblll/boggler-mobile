@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
 type Props = {
   words: string[];
@@ -32,6 +32,7 @@ const WordsList: React.FC<Props> = ({ words }) => {
       {words.map((word, index) => 
         <Text key={index}>{word}</Text>
       )}
+      <Button title='Solve new game' onPress={() => alert("test")} />
     </View>
   );
 }
