@@ -61,19 +61,14 @@ const App = () => {
       const ratios = await cameraRef.current?.getSupportedRatiosAsync();
       if (ratios) {
         let ratioIndex = ratios.findIndex(ratio => ratio === "4:3");
-        if (ratioIndex === -1) {
-          for (let i = 0; i < ratios.length; i++) {
-            if (ratios[i] < ratios[ratioIndex]) {
-              ratioIndex = i
-            }
-          }
-        }
-        const ratio = ratios[ratioIndex]
-        const parts = ratio.split(':');
-        const aspectRatio = parseInt(parts[0]) / parseInt(parts[1]);
+        if (ratioIndex !== -1) {
+          const ratio = ratios[ratioIndex]
+          const parts = ratio.split(':');
+          const aspectRatio = parseInt(parts[0]) / parseInt(parts[1]);
 
-        setCameraRatio(ratio)
-        setAspectRatio(aspectRatio)
+          setCameraRatio(ratio)
+          setAspectRatio(aspectRatio)
+        }
       }
     }
   }
