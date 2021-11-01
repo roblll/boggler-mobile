@@ -3,13 +3,14 @@ import { View, Text, Button } from 'react-native';
 
 type Props = {
   words: string[];
+  solveNewGame: () => void;
 }
 
 type WordsByLength = {
   [key: string]: string[];
 }
 
-const WordsList: React.FC<Props> = ({ words }) => {
+const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
   const getWordsByLength = () => {
     let wordsByLength: WordsByLength = {}
     words.forEach(word => {
@@ -32,7 +33,7 @@ const WordsList: React.FC<Props> = ({ words }) => {
       {words.map((word, index) => 
         <Text key={index}>{word}</Text>
       )}
-      <Button title='Solve new game' onPress={() => alert("test")} />
+      <Button title='Solve new game' onPress={solveNewGame} />
     </View>
   );
 }

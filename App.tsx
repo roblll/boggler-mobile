@@ -78,6 +78,10 @@ const App = () => {
     }
   }
 
+  const solveNewGame = () => {
+    setShowCamera(true)
+  }
+
   if (!hasPermission) {
     return <View></View>
   }
@@ -116,7 +120,7 @@ const App = () => {
     );
   } else {
     return (
-      <WordsList words={words} />
+      <WordsList words={words} solveNewGame={solveNewGame} />
     )
   }
 }
