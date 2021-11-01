@@ -32,7 +32,9 @@ const App = () => {
       try {
         const options = { base64: true, exif: true };
         const data = await cameraRef.current.takePictureAsync(options);
-        const source = data.base64
+        const source = data.base64;
+        const imageHeight = data.height > data.width ? data.height : data.width;
+        const imageWidth = data.width < data.height ? data.width: data.height;
         
         if (source) {
           const apiUrl = getURI();
