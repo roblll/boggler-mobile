@@ -29,11 +29,11 @@ const App = () => {
 
   const onSnap = async () => {
     if (cameraRef.current) {
-      const options = { base64: true };
-      const data = await cameraRef.current.takePictureAsync(options);
-      const source = data.base64;
-
       try {
+        const options = { base64: true, exif: true };
+        const data = await cameraRef.current.takePictureAsync(options);
+        const source = data.base64
+        
         if (source) {
           const apiUrl = getURI();
           const response = await fetch(apiUrl, {
