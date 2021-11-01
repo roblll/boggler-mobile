@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Dimensions, Platform, Image, StyleSheet } from 'react-native';
 import { Camera, Constants } from 'expo-camera';
+import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';
 
 import { getURI } from './utils/utils';
 
@@ -33,6 +34,7 @@ const App = () => {
         const options = { base64: true, exif: true };
         const data = await cameraRef.current.takePictureAsync(options);
         const source = data.base64;
+        const uri = data.uri;
         const imageHeight = data.height > data.width ? data.height : data.width;
         const imageWidth = data.width < data.height ? data.width: data.height;
         const croppedWidth = imageWidth * .8;
@@ -41,9 +43,17 @@ const App = () => {
         const originY = (imageHeight - croppedHeight) / 2;
         
         if (source) {
+          const processedImage = await manipulateAsync(
+            uri,
+            [
+              { crop: { originX: originX, originY: originY, height: croppedHeight, width: croppedWidth }}
+            ],
+            { compress: 1, format: SaveFormat.JPEG, base64: true }
+          );
+
           const apiUrl = getURI();
           const response = await fetch(apiUrl, {
-            body: JSON.stringify({ file: source }),
+            body: JSON.stringify({ file: processedImage.base64 }),
             headers: {
               'content-type': 'application/json'
             },
