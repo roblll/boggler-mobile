@@ -35,6 +35,10 @@ const App = () => {
         const source = data.base64;
         const imageHeight = data.height > data.width ? data.height : data.width;
         const imageWidth = data.width < data.height ? data.width: data.height;
+        const croppedWidth = imageWidth * .8;
+        const originX = imageWidth * .1;
+        const croppedHeight = croppedWidth;
+        const originY = (imageHeight - croppedHeight) / 2;
         
         if (source) {
           const apiUrl = getURI();
