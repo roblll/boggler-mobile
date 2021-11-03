@@ -31,7 +31,7 @@ const App = () => {
   const onSnap = async () => {
     if (cameraRef.current) {
       try {
-        const options = { base64: true, exif: true };
+        const options = { base64: true, exif: true, skipProcessing: true };
         const data = await cameraRef.current.takePictureAsync(options);
         const source = data.base64;
         const uri = data.uri;
