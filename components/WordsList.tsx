@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 
+import WordsSection from './WordsSection'
+
 type Props = {
   words: string[];
   solveNewGame: () => void;
@@ -25,7 +27,10 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
     let wordsByLenghtSections = []
     for (let length in wordsByLength) {
       wordsByLenghtSections.push(
-        <Text key={length}>{length}</Text>
+        <View key={length}>
+          <Text>{length}</Text>
+          <WordsSection />
+        </View>
       )
     }
     return wordsByLenghtSections;
