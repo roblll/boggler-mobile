@@ -22,10 +22,14 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
         wordsByLength[lengthKey].push(word)
       }
     })
-    console.log(wordsByLength)
+    let wordsByLenghtSections = []
+    for (let length in wordsByLength) {
+      wordsByLenghtSections.push(
+        <Text key={length}>{length}</Text>
+      )
+    }
+    return wordsByLenghtSections;
   }
-
-  getWordsByLength()
 
   return (
     <View>
@@ -33,6 +37,7 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
       {words.map((word, index) => 
         <Text key={index}>{word}</Text>
       )}
+      {getWordsByLength()}
       <Button title='Solve new game' onPress={solveNewGame} />
     </View>
   );
