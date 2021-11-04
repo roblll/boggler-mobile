@@ -28,8 +28,7 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
     for (let length in wordsByLength) {
       wordsByLenghtSections.push(
         <View key={length}>
-          <Text>{length}</Text>
-          <WordsSection words={wordsByLength[length]} />
+          <WordsSection words={wordsByLength[length]} wordsLength={length} />
         </View>
       )
     }
