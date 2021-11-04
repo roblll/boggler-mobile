@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
 import WordsSection from './WordsSection'
 
@@ -36,15 +36,20 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Words List</Text>
-      {words.map((word, index) => 
-        <Text key={index}>{word}</Text>
-      )}
       {getWordsByLength()}
       <Button title='Solve new game' onPress={solveNewGame} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+})
 
 export default WordsList;
