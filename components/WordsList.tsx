@@ -29,7 +29,7 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
       wordsByLenghtSections.push(
         <View key={length}>
           <Text>{length}</Text>
-          <WordsSection />
+          <WordsSection words={wordsByLength[length]} />
         </View>
       )
     }
