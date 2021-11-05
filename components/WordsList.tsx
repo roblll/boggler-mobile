@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-import WordsSection from './WordsSection'
+import WordsSection from './WordsSection';
+import SolveButton from './SolveButton';
 
 type Props = {
   words: string[];
@@ -40,6 +41,7 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
       <Text>Words List</Text>
       {getWordsByLength()}
       <Button title='Solve new game' onPress={solveNewGame} />
+      <SolveButton />
     </View>
   );
 }
