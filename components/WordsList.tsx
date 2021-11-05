@@ -41,7 +41,9 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
       <Text>Words List</Text>
       {getWordsByLength()}
       <Button title='Solve new game' onPress={solveNewGame} />
-      <SolveButton />
+      <View style={styles.solveSection}>
+        <SolveButton />
+      </View>
     </View>
   );
 }
@@ -51,6 +53,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  solveSection: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#f4d456',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '10%',
   }
 })
 
