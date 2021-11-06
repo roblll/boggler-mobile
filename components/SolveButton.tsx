@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const SolveButton = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.buttonText}>SOLVE</Text>
+      <MaterialCommunityIcons
+        name="camera"
+        size={50}
+        color={'white'}
+      />
     </View>
   );
 }
