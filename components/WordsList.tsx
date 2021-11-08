@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 import WordsSection from './WordsSection';
 import SolveButton from './SolveButton';
@@ -40,7 +40,6 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
     <View style={styles.container}>
       <Text>Words List</Text>
       {getWordsByLength()}
-      <Button title='Solve new game' onPress={solveNewGame} />
       <View style={styles.solveSection}>
         <SolveButton onClick={solveNewGame} />
       </View>
