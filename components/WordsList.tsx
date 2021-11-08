@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 
 import WordsSection from './WordsSection';
 import SolveButton from './SolveButton';
+
+const WINDOW_HEIGHT = Dimensions.get('window').height;
 
 type Props = {
   words: string[];
@@ -50,7 +52,7 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    paddingTop: WINDOW_HEIGHT * .1,
     alignItems: 'center',
   },
   solveSection: {
