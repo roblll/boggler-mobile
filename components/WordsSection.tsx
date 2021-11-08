@@ -11,12 +11,12 @@ type Props = {
 const WordsSection: React.FC<Props> = ({ wordsLength, words }) => {
   let wordsList: JSX.Element[] = []
   words.forEach(word => {
-    wordsList.push(<Text key={`${word}`}>{word}</Text>)
+    wordsList.push(<Text key={`${word}`}>• {word}</Text>)
   })
 
   return (
     <View style={styles.container}>
-      <Text>{`${wordsLength} letter words`}</Text>
+      <Text>{`${wordsLength} letters (${words.length})`}</Text>
       {wordsList}
     </View>
   );

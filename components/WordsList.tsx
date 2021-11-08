@@ -38,7 +38,7 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Words List</Text>
+      <Text>{`${words.length}`} Words Found</Text>
       {getWordsByLength()}
       <View style={styles.solveSection}>
         <SolveButton onClick={solveNewGame} />
