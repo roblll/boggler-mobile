@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+
+const WINDOW_WIDTH = Dimensions.get('window').width;
 
 type Props = {
   wordsLength: string;
@@ -22,7 +24,9 @@ const WordsSection: React.FC<Props> = ({ wordsLength, words }) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10
+    width: WINDOW_WIDTH,
+    paddingHorizontal: WINDOW_WIDTH * .1,
+    paddingVertical: WINDOW_WIDTH * .025,
   }
 })
 
