@@ -1,18 +1,22 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
-const SolveButton = () => {
+type Props = {
+  onClick: () => void;
+}
+
+const SolveButton: React.FC<Props> = ({ onClick }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onClick}>
       <MaterialCommunityIcons
         name="camera"
         size={WINDOW_WIDTH * .25 * .5}
         color={'white'}
       />
-    </View>
+    </TouchableOpacity>
   );
 }
 

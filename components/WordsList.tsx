@@ -42,7 +42,7 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
       {getWordsByLength()}
       <Button title='Solve new game' onPress={solveNewGame} />
       <View style={styles.solveSection}>
-        <SolveButton />
+        <SolveButton onClick={solveNewGame} />
       </View>
     </View>
   );
