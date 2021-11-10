@@ -98,6 +98,14 @@ const App = () => {
     setShowCamera(false)
   }
 
+  const toggleFlash = () => {
+    if (flashOn) {
+      setFlashOn(false)
+    } else {
+      setFlashOn(true)
+    }
+  }
+
   if (!hasPermission) {
     return <View></View>
   }
@@ -126,7 +134,7 @@ const App = () => {
             <Button onPress={showWordsList} title='cancel' />
           </View>
           <View style={{ position: 'absolute', right: 10, bottom: 10 }}>
-            <Button onPress={() => alert('flashlight')} title='flashlight' />
+            <Button onPress={toggleFlash} title='flashlight' />
           </View>
         </View>
         <Image
