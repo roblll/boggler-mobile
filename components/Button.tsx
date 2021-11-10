@@ -1,32 +1,29 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { TouchableOpacity, Dimensions } from 'react-native';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
 type Props = {
   onClick: () => void;
+  size: number;
 }
 
-const Button: React.FC<Props> = ({ onClick }) => {
+const Button: React.FC<Props> = ({ onClick, size }) => {
   return (
     <TouchableOpacity
-      style={styles.container}
+      style={{
+        backgroundColor: '#56d7f4',
+        height: size,
+        width: size,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: size,
+        borderColor: 'white',
+        borderWidth: size * .05,
+      }}
       onPress={onClick}
     />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#56d7f4',
-    height: WINDOW_WIDTH * .25,
-    width: WINDOW_WIDTH * .25,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: WINDOW_WIDTH * .25,
-    borderColor: 'white',
-    borderWidth: WINDOW_WIDTH * .01,
-  },
-});
 
 export default Button

@@ -129,7 +129,7 @@ const App = () => {
           flashMode={flashOn ? Camera.Constants.FlashMode.on : Camera.Constants.FlashMode.off}
         />
         <View style={styles.buttonContainer}>
-          <SnapButton onClick={onSnap} />
+          <SnapButton onClick={onSnap} size={WINDOW_WIDTH * .25} />
           <View style={{ position: 'absolute', left: 10, bottom: 10 }}>
             <Button onPress={showWordsList} title='cancel' />
           </View>
