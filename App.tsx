@@ -93,6 +93,10 @@ const App = () => {
     setShowCamera(true)
   }
 
+  const showWordsList = () => {
+    setShowCamera(false)
+  }
+
   if (!hasPermission) {
     return <View></View>
   }
