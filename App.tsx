@@ -123,6 +123,9 @@ const App = () => {
           <View style={{ position: 'absolute', left: 10, bottom: 10 }}>
             <Button onPress={showWordsList} title='cancel' />
           </View>
+          <View style={{ position: 'absolute', right: 10, bottom: 10 }}>
+            <Button onPress={() => alert('flashlight')} title='flashlight' />
+          </View>
         </View>
         <Image
           source={require('./assets/grid.png')}
