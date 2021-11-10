@@ -15,9 +15,10 @@ const App = () => {
   const cameraRef = useRef<Camera | null>();
   const [hasPermission, setHasPermission] = useState<boolean>(false);
   const [cameraRatio, setCameraRatio] = useState("");
-  const [aspectRatio, setAspectRatio] = useState(1.333)
-  const [showCamera, setShowCamera] = useState<boolean>(true)
-  const [words, setWords] = useState([])
+  const [aspectRatio, setAspectRatio] = useState(1.333);
+  const [showCamera, setShowCamera] = useState<boolean>(true);
+  const [flashOn, setFlashOn] = useState<boolean>(false);
+  const [words, setWords] = useState([]);
 
   useEffect(() => {
     onHandlePermission();
@@ -117,6 +118,7 @@ const App = () => {
           ratio={cameraRatio}
           useCamera2Api={true}
           type={Constants.Type.back}
+          flashMode={flashOn ? Camera.Constants.FlashMode.on : Camera.Constants.FlashMode.off}
         />
         <View style={styles.buttonContainer}>
           <SnapButton onClick={onSnap} />
