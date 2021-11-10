@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Dimensions, Platform, Image, StyleSheet } from 'react-native';
+import { View, Dimensions, Platform, Image, StyleSheet, Button } from 'react-native';
 import { Camera, Constants } from 'expo-camera';
 import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';
 
 import { getURI } from './utils/utils';
 
-import Button from './components/Button';
+import SnapButton from './components/Button';
 import WordsList from './components/WordsList';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
@@ -119,7 +119,10 @@ const App = () => {
           type={Constants.Type.back}
         />
         <View style={styles.buttonContainer}>
-          <Button onClick={onSnap} />
+          <SnapButton onClick={onSnap} />
+          <View style={{ position: 'absolute', left: 10, bottom: 10 }}>
+            <Button onPress={showWordsList} title='cancel' />
+          </View>
         </View>
         <Image
           source={require('./assets/grid.png')}
