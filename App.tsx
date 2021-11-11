@@ -129,13 +129,9 @@ const App = () => {
           flashMode={flashOn ? Camera.Constants.FlashMode.on : Camera.Constants.FlashMode.off}
         />
         <View style={styles.buttonContainer}>
+          <Button onClick={toggleFlash} size={WINDOW_WIDTH * .25 * .5} icon='flash' />
           <Button onClick={onSnap} size={WINDOW_WIDTH * .25} />
-          <View style={{ position: 'absolute', right: 10, bottom: 10 }}>
-            <Button onClick={toggleFlash} size={WINDOW_WIDTH * .25 * .5} icon='flash' />
-          </View>
-          <View style={{ position: 'absolute', left: 10, bottom: 10 }}>
-            <Button onClick={showWordsList} size={WINDOW_WIDTH * .25 * .5} icon='close' />
-          </View>
+          <Button onClick={showWordsList} size={WINDOW_WIDTH * .25 * .5} icon='close' />
         </View>
         <Image
           source={require('./assets/grid.png')}
@@ -163,8 +159,9 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
+    flexDirection: 'row',
   }
 });
 

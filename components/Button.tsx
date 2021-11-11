@@ -28,7 +28,7 @@ const Button: React.FC<Props> = ({ onClick, size, icon }) => {
       {icon &&
         <MaterialCommunityIcons
           name={icon}
-          size={WINDOW_WIDTH * .25 * .5}
+          size={size * .5}
           color={'white'}
         />
       }
