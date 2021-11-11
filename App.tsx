@@ -129,7 +129,11 @@ const App = () => {
           flashMode={flashOn ? Camera.Constants.FlashMode.on : Camera.Constants.FlashMode.off}
         />
         <View style={styles.buttonContainer}>
-          <Button onClick={toggleFlash} size={WINDOW_WIDTH * .25 * .5} icon='flash' />
+          <Button 
+            onClick={toggleFlash} 
+            size={WINDOW_WIDTH * .25 * .5} 
+            icon={flashOn ? 'flash' : 'flash-off'}
+          />
           <Button onClick={onSnap} size={WINDOW_WIDTH * .25} />
           <Button onClick={showWordsList} size={WINDOW_WIDTH * .25 * .5} icon='close' />
         </View>
