@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 
 import WordsSection from './WordsSection';
-import SolveButton from './SolveButton';
+import Button from './Button';
 
+const WINDOW_WIDTH = Dimensions.get('window').width;
 const WINDOW_HEIGHT = Dimensions.get('window').height;
 
 type Props = {
@@ -43,7 +44,7 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
       <Text>{`${words.length}`} Words Found</Text>
       {getWordsByLength()}
       <View style={styles.solveSection}>
-        <SolveButton onClick={solveNewGame} />
+        <Button onClick={solveNewGame} size={WINDOW_WIDTH * .25} icon='camera' />
       </View>
     </View>
   );
@@ -62,6 +63,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f4d456',
     justifyContent: 'center',
     alignItems: 'center',
+    padding: WINDOW_HEIGHT * .05,
   }
 })
 
