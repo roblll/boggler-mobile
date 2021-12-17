@@ -7,7 +7,7 @@ import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';
 import { getURI } from './utils/utils';
 
 import Button from './components/Button';
-import WordsList from './components/WordsList';
+import WordsList, { WordsByLength } from './components/WordsList';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
@@ -18,7 +18,7 @@ const App = () => {
   const [aspectRatio, setAspectRatio] = useState(1.333);
   const [showCamera, setShowCamera] = useState<boolean>(true);
   const [flashOn, setFlashOn] = useState<boolean>(false);
-  const [words, setWords] = useState([]);
+  const [words, setWords] = useState<WordsByLength>({});
 
   useEffect(() => {
     onHandlePermission();

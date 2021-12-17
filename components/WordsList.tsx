@@ -8,31 +8,21 @@ const WINDOW_WIDTH = Dimensions.get('window').width;
 const WINDOW_HEIGHT = Dimensions.get('window').height;
 
 type Props = {
-  words: string[];
+  words: WordsByLength;
   solveNewGame: () => void;
 }
 
-type WordsByLength = {
+export type WordsByLength = {
   [key: string]: string[];
 }
 
 const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
   const getWordsByLength = () => {
-    let wordsByLength: WordsByLength = {}
-    words.forEach(word => {
-      let lengthKey = word.length.toString();
-      if (lengthKey in wordsByLength) {
-        wordsByLength[lengthKey].push(word)
-      } else {
-        wordsByLength[lengthKey] = []
-        wordsByLength[lengthKey].push(word)
-      }
-    })
     let wordsByLenghtSections = []
-    for (let length in wordsByLength) {
+    for (let length in words) {
       wordsByLenghtSections.push(
         <View key={length}>
-          <WordsSection words={wordsByLength[length]} wordsLength={length} />
+          <WordsSection words={words[length]} wordsLength={length} />
         </View>
       )
     }
