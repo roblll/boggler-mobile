@@ -9,6 +9,7 @@ const WINDOW_HEIGHT = Dimensions.get('window').height;
 
 type Props = {
   words: WordsByLength;
+  count: string;
   solveNewGame: () => void;
 }
 
@@ -16,7 +17,7 @@ export type WordsByLength = {
   [key: string]: string[];
 }
 
-const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
+const WordsList: React.FC<Props> = ({ words, count, solveNewGame }) => {
   const getWordsByLength = () => {
     let wordsByLenghtSections = []
     for (let length in words) {
@@ -31,7 +32,7 @@ const WordsList: React.FC<Props> = ({ words, solveNewGame }) => {
 
   return (
     <View style={styles.container}>
-      <Text>{`${words.length}`} Words Found</Text>
+      <Text>{`${count}`} Words Found</Text>
       {getWordsByLength()}
       <View style={styles.solveSection}>
         <Button onClick={solveNewGame} size={WINDOW_WIDTH * .25} icon='camera' />

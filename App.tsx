@@ -19,6 +19,7 @@ const App = () => {
   const [showCamera, setShowCamera] = useState<boolean>(true);
   const [flashOn, setFlashOn] = useState<boolean>(false);
   const [words, setWords] = useState<WordsByLength>({});
+  const [count, setCount] = useState<string>("")
 
   useEffect(() => {
     onHandlePermission();
@@ -64,6 +65,7 @@ const App = () => {
           alert('Upload successful');
           console.log(data)
           setWords(data.words)
+          setCount(data.count)
           setShowCamera(false)
         }
       } catch (err) {
@@ -151,7 +153,7 @@ const App = () => {
     );
   } else {
     return (
-      <WordsList words={words} solveNewGame={solveNewGame} />
+      <WordsList words={words} count={count} solveNewGame={solveNewGame} />
     )
   }
 }
