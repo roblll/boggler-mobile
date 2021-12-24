@@ -20,6 +20,7 @@ const App = () => {
   const [flashOn, setFlashOn] = useState<boolean>(false);
   const [words, setWords] = useState<WordsByLength>({});
   const [count, setCount] = useState<string>("")
+  const [board, setBoard] = useState([])
 
   useEffect(() => {
     onHandlePermission();
@@ -66,6 +67,7 @@ const App = () => {
           console.log(data)
           setWords(data.words)
           setCount(data.count)
+          setBoard(data.board)
           setShowCamera(false)
         }
       } catch (err) {
