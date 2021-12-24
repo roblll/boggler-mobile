@@ -10,6 +10,7 @@ const WINDOW_HEIGHT = Dimensions.get('window').height;
 type Props = {
   words: WordsByLength;
   count: string;
+  board: string[][];
   solveNewGame: () => void;
 }
 

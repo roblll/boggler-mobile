@@ -155,7 +155,7 @@ const App = () => {
     );
   } else {
     return (
-      <WordsList words={words} count={count} solveNewGame={solveNewGame} />
+      <WordsList words={words} count={count} board={board} solveNewGame={solveNewGame} />
     )
   }
 }
