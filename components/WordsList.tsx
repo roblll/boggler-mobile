@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 
 import WordsSection from './WordsSection';
 import Button from './Button';
+import Board from './Board';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 const WINDOW_HEIGHT = Dimensions.get('window').height;
@@ -28,7 +29,12 @@ const WordsList: React.FC<Props> = ({ words, count, solveNewGame }) => {
         </View>
       )
     }
-    return wordsByLenghtSections;
+    return (
+      <View>
+        <Board />
+        {wordsByLenghtSections}
+      </View>
+    );
   }
 
   return (
