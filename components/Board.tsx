@@ -8,7 +8,10 @@ type Props = {
 const Board: React.FC<Props> = ({board}) => {
   return (
     <View>
-      <Text>Board</Text>
+      <Text>{board[0].join(" | ")}</Text>
+      <Text>{board[1].join(" | ")}</Text>
+      <Text>{board[2].join(" | ")}</Text>
+      <Text>{board[3].join(" | ")}</Text>
     </View>
   );
 }
