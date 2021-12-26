@@ -57,8 +57,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   solveSection: {
-    position: 'absolute',
-    bottom: 0,
     width: '100%',
     backgroundColor: '#f4d456',
     justifyContent: 'center',
