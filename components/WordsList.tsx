@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
 
 import WordsSection from './WordsSection';
 import Button from './Button';
@@ -31,7 +31,6 @@ const WordsList: React.FC<Props> = ({ words, count, solveNewGame }) => {
     }
     return (
       <View>
-        <Board />
         {wordsByLenghtSections}
       </View>
     );
@@ -40,7 +39,10 @@ const WordsList: React.FC<Props> = ({ words, count, solveNewGame }) => {
   return (
     <View style={styles.container}>
       <Text>{`${count}`} Words Found</Text>
-      {getWordsByLength()}
+      <Board />
+      <ScrollView>
+        {getWordsByLength()}
+      </ScrollView>
       <View style={styles.solveSection}>
         <Button onClick={solveNewGame} size={WINDOW_WIDTH * .25} icon='camera' />
       </View>
