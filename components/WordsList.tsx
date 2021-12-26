@@ -19,7 +19,7 @@ export type WordsByLength = {
   [key: string]: string[];
 }
 
-const WordsList: React.FC<Props> = ({ words, count, solveNewGame }) => {
+const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame }) => {
   const getWordsByLength = () => {
     let wordsByLenghtSections = []
     for (let length in words) {
@@ -39,7 +39,7 @@ const WordsList: React.FC<Props> = ({ words, count, solveNewGame }) => {
   return (
     <View style={styles.container}>
       <Text>{`${count}`} Words Found</Text>
-      <Board />
+      <Board board={board}/>
       <ScrollView>
         {getWordsByLength()}
       </ScrollView>
