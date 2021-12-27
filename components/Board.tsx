@@ -8,19 +8,19 @@ type Props = {
 const Board: React.FC<Props> = ({board}) => {
   let row1: JSX.Element[] = []
   board[0].forEach(letter => {
-    row1.push(<Text>{letter}</Text>)
+    row1.push(<View style={styles.cell}><Text>{letter}</Text></View>)
   });
   let row2: JSX.Element[] = []
   board[1].forEach(letter => {
-    row2.push(<Text>{letter}</Text>)
+    row2.push(<View style={styles.cell}><Text>{letter}</Text></View>)
   });
   let row3: JSX.Element[] = []
   board[2].forEach(letter => {
-    row3.push(<Text>{letter}</Text>)
+    row3.push(<View style={styles.cell}><Text>{letter}</Text></View>)
   });
   let row4: JSX.Element[] = []
   board[3].forEach(letter => {
-    row4.push(<Text>{letter}</Text>)
+    row4.push(<View style={styles.cell}><Text>{letter}</Text></View>)
   });
 
   return (
@@ -36,6 +36,14 @@ const Board: React.FC<Props> = ({board}) => {
 const styles = StyleSheet.create({
   row: {
     flexDirection: "row"
+  },
+  cell: {
+    borderWidth: 1,
+    borderColor: "black",
+    width: 20,
+    height: 20,
+    justifyContent: "center",
+    alignItems: "center",
   }
 })
 
