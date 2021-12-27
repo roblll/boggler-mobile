@@ -25,12 +25,18 @@ const Board: React.FC<Props> = ({board}) => {
 
   return (
     <View>
-      <View>{row1}</View>
-      <View>{row2}</View>
-      <View>{row2}</View>
-      <View>{row2}</View>
+      <View style={styles.row}>{row1}</View>
+      <View style={styles.row}>{row2}</View>
+      <View style={styles.row}>{row2}</View>
+      <View style={styles.row}>{row2}</View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  row: {
+    flexDirection: "row"
+  }
+})
 
 export default Board;
