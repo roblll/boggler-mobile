@@ -11,7 +11,7 @@ type Props = {
 const WordsSection: React.FC<Props> = ({ wordsLength, words }) => {
   let allWords: string = ""
   words.forEach(word => {
-    allWords = allWords + `${word}  `
+    allWords = allWords + `${word.toUpperCase()}  `
   })
 
   return (
