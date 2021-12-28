@@ -27,8 +27,8 @@ const Board: React.FC<Props> = ({board}) => {
     <View style={styles.container}>
       <View style={styles.row}>{row1}</View>
       <View style={styles.row}>{row2}</View>
-      <View style={styles.row}>{row2}</View>
-      <View style={styles.row}>{row2}</View>
+      <View style={styles.row}>{row3}</View>
+      <View style={styles.row}>{row4}</View>
     </View>
   );
 }
