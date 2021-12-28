@@ -7,20 +7,20 @@ type Props = {
 
 const Board: React.FC<Props> = ({board}) => {
   let row1: JSX.Element[] = []
-  board[0].forEach(letter => {
-    row1.push(<View style={styles.cell}><Text>{letter}</Text></View>)
+  board[0].forEach((letter, index) => {
+    row1.push(<View key={index} style={styles.cell}><Text>{letter}</Text></View>)
   });
   let row2: JSX.Element[] = []
-  board[1].forEach(letter => {
-    row2.push(<View style={styles.cell}><Text>{letter}</Text></View>)
+  board[1].forEach((letter, index) => {
+    row2.push(<View key={index} style={styles.cell}><Text>{letter}</Text></View>)
   });
   let row3: JSX.Element[] = []
-  board[2].forEach(letter => {
-    row3.push(<View style={styles.cell}><Text>{letter}</Text></View>)
+  board[2].forEach((letter, index) => {
+    row3.push(<View key={index} style={styles.cell}><Text>{letter}</Text></View>)
   });
   let row4: JSX.Element[] = []
-  board[3].forEach(letter => {
-    row4.push(<View style={styles.cell}><Text>{letter}</Text></View>)
+  board[3].forEach((letter, index) => {
+    row4.push(<View key={index} style={styles.cell}><Text>{letter}</Text></View>)
   });
 
   return (
