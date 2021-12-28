@@ -24,7 +24,7 @@ const Board: React.FC<Props> = ({board}) => {
   });
 
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.row}>{row1}</View>
       <View style={styles.row}>{row2}</View>
       <View style={styles.row}>{row2}</View>
@@ -34,6 +34,10 @@ const Board: React.FC<Props> = ({board}) => {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    borderWidth: 1,
+    borderColor: "black",
+  },
   row: {
     flexDirection: "row"
   },
