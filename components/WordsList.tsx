@@ -40,7 +40,7 @@ const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame }) => {
     <View style={styles.container}>
       <Text>{`${count}`} Words Found</Text>
       <Board board={board}/>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {getWordsByLength()}
       </ScrollView>
       <View style={styles.solveSection}>
