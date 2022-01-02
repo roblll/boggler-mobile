@@ -36,18 +36,22 @@ const Board: React.FC<Props> = ({board}) => {
 const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: "#56d7f4",
   },
   row: {
-    flexDirection: "row"
+    flexDirection: "row",
+    backgroundColor: "white",
   },
   cell: {
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: "#56d7f4",
     width: 20,
     height: 20,
     justifyContent: "center",
     alignItems: "center",
+  },
+  letter: {
+    color: "red",
   }
 })
 
