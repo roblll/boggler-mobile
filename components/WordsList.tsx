@@ -42,7 +42,7 @@ const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame }) => {
         <Text>{`${count}`} Words Found</Text>
         <Board board={board}/>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView style={styles.wordsList} showsVerticalScrollIndicator={false}>
         {getWordsByLength()}
       </ScrollView>
       <View style={styles.solveSection}>
@@ -72,7 +72,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: WINDOW_HEIGHT * .05,
     flexDirection: 'row',
-  }
+  },
+  wordsList: {
+    backgroundColor: "#56d7f4",
+    borderTopWidth: 2,
+    borderBottomWidth: 2,
+    borderColor: "white",
+  },
 })
 
 export default WordsList;
