@@ -16,8 +16,8 @@ const WordsSection: React.FC<Props> = ({ wordsLength, words }) => {
 
   return (
     <View style={styles.container}>
-      <Text>{`${wordsLength} letters (${words.length})`}</Text>
-      <Text>{allWords}</Text>
+      <Text style={styles.wordText}>{`${wordsLength} letters (${words.length})`}</Text>
+      <Text style={styles.wordText}>{allWords}</Text>
     </View>
   );
 }
@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
     width: WINDOW_WIDTH,
     paddingHorizontal: WINDOW_WIDTH * .1,
     paddingVertical: WINDOW_WIDTH * .025,
+  },
+  wordText: {
+    color: "white"
   }
 })
 
