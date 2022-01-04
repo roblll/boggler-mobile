@@ -57,27 +57,26 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: WINDOW_HEIGHT * .1,
     alignItems: 'center',
+    backgroundColor: '#f4d456',
   },
   solveSection: {
     width: '100%',
-    backgroundColor: '#f4d456',
     justifyContent: 'center',
     alignItems: 'center',
     padding: WINDOW_HEIGHT * .05,
   },
   headerSection: {
     width: '100%',
-    backgroundColor: '#f4d456',
     justifyContent: 'space-evenly',
     alignItems: 'center',
     padding: WINDOW_HEIGHT * .05,
     flexDirection: 'row',
   },
   wordsList: {
-    backgroundColor: "#56d7f4",
-    borderTopWidth: 2,
-    borderBottomWidth: 2,
-    borderColor: "white",
+    backgroundColor: "#173a42",
+    width: "80%",
+    borderColor: "#15343b",
+    borderWidth: 6,
   },
 })
 
