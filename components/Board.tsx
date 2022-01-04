@@ -8,19 +8,19 @@ type Props = {
 const Board: React.FC<Props> = ({board}) => {
   let row1: JSX.Element[] = []
   board[0].forEach((letter, index) => {
-    row1.push(<View key={index} style={styles.cell}><Text>{letter.toUpperCase()}</Text></View>)
+    row1.push(<View key={index} style={styles.cell}><Text style={styles.letter}>{letter.toUpperCase()}</Text></View>)
   });
   let row2: JSX.Element[] = []
   board[1].forEach((letter, index) => {
-    row2.push(<View key={index} style={styles.cell}><Text>{letter.toUpperCase()}</Text></View>)
+    row2.push(<View key={index} style={styles.cell}><Text style={styles.letter}>{letter.toUpperCase()}</Text></View>)
   });
   let row3: JSX.Element[] = []
   board[2].forEach((letter, index) => {
-    row3.push(<View key={index} style={styles.cell}><Text>{letter.toUpperCase()}</Text></View>)
+    row3.push(<View key={index} style={styles.cell}><Text style={styles.letter}>{letter.toUpperCase()}</Text></View>)
   });
   let row4: JSX.Element[] = []
   board[3].forEach((letter, index) => {
-    row4.push(<View key={index} style={styles.cell}><Text>{letter.toUpperCase()}</Text></View>)
+    row4.push(<View key={index} style={styles.cell}><Text style={styles.letter}>{letter.toUpperCase()}</Text></View>)
   });
 
   return (
@@ -36,7 +36,7 @@ const Board: React.FC<Props> = ({board}) => {
 const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
-    borderColor: "#56d7f4",
+    borderColor: "#15343b",
   },
   row: {
     flexDirection: "row",
@@ -44,14 +44,15 @@ const styles = StyleSheet.create({
   },
   cell: {
     borderWidth: 1,
-    borderColor: "#56d7f4",
+    borderColor: "#15343b",
     width: 20,
     height: 20,
     justifyContent: "center",
     alignItems: "center",
   },
   letter: {
-    color: "red",
+    color: "#15343b",
+    fontWeight: "700",
   }
 })
 
