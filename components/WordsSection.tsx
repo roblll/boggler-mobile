@@ -22,16 +22,18 @@ const WordsSection: React.FC<Props> = ({ wordsLength, words }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 10,
-    paddingVertical: 10,
+    paddingHorizontal: 16,
+    paddingVertical: 16,
   },
   wordText: {
     color: "white",
+    fontFamily: "monospace",
   },
   wordsTitle: {
     textAlign: "center",
     color: "white",
     fontWeight: "bold",
+    fontFamily: "monospace",
   }
 })
 
