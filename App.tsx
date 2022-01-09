@@ -47,6 +47,7 @@ const App = () => {
         const originY = (imageHeight - croppedHeight) / 2;
         
         if (source) {
+          setLoading(true)
           const processedImage = await manipulateAsync(
             uri,
             [
@@ -69,11 +70,13 @@ const App = () => {
           setWords(data.words)
           setCount(data.count)
           setBoard(data.board)
+          setLoading(false)
           setShowCamera(false)
         }
       } catch (err) {
         alert('Cannot upload');
         console.log(err);
+        setLoading(false)
       }
     }
   }
