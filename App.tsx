@@ -19,8 +19,9 @@ const App = () => {
   const [showCamera, setShowCamera] = useState<boolean>(true);
   const [flashOn, setFlashOn] = useState<boolean>(false);
   const [words, setWords] = useState<WordsByLength>({});
-  const [count, setCount] = useState<string>("0")
-  const [board, setBoard] = useState([["", "", "", ""], ["", "", "", ""], ["", "", "", ""], ["", "", "", ""]])
+  const [count, setCount] = useState<string>("0");
+  const [board, setBoard] = useState([["", "", "", ""], ["", "", "", ""], ["", "", "", ""], ["", "", "", ""]]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     onHandlePermission();
@@ -112,6 +113,12 @@ const App = () => {
 
   if (!hasPermission) {
     return <View></View>
+  }
+
+  if (loading) {
+    return (
+      <View></View>
+    );
   }
 
   if (showCamera) {
