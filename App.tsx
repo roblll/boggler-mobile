@@ -8,6 +8,7 @@ import { getURI } from './utils/utils';
 
 import Button from './components/Button';
 import WordsList, { WordsByLength } from './components/WordsList';
+import Loading from './components/Loading';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
@@ -120,7 +121,7 @@ const App = () => {
 
   if (loading) {
     return (
-      <View></View>
+      <Loading />
     );
   }
 
