@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 const Loading = () => {
   return (
     <View style={styles.container}>
-      <Text>Loading</Text>
+      <Image style={styles.loadingGif} source={require('../assets/loading.gif')} />
     </View>
   );
 }
@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f4d456',
+  },
+  loadingGif: {
+    width: 100,
+    height: 100,
   }
 })
 
