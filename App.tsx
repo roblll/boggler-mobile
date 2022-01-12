@@ -67,7 +67,6 @@ const App = () => {
           })
           const data = await response.json()
           alert('Upload successful');
-          console.log(data)
           setWords(data.words)
           setCount(data.count)
           setBoard(data.board)
