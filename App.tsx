@@ -66,7 +66,6 @@ const App = () => {
             method: 'POST'
           })
           const data = await response.json()
-          alert('Upload successful');
           setWords(data.words)
           setCount(data.count)
           setBoard(data.board)
@@ -74,8 +73,6 @@ const App = () => {
           setShowCamera(false)
         }
       } catch (err) {
-        alert('Cannot upload');
-        console.log(err);
         setLoading(false)
       }
     }
