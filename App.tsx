@@ -65,10 +65,12 @@ const App = () => {
             },
             method: 'POST'
           })
-          const data = await response.json()
-          setWords(data.words)
-          setCount(data.count)
-          setBoard(data.board)
+          const { board } = await response.json()
+          const foundWords = {"3": ["cat", "dog"], "4": ["ball"], "5": ["apple"]}
+          const count = "4"
+          setWords(foundWords)
+          setCount(count)
+          setBoard(board)
           setLoading(false)
           setShowCamera(false)
         }
