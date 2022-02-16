@@ -16,7 +16,7 @@ export const getURI = () => {
 
 export const buildTrie = () => {
   const words = A.concat(B)
-  const trie: {[key: string]: {}} = {}
+  const trie = {}
   for (let word of words) {
     let cur = trie
     for (let ch of word) {
@@ -30,7 +30,7 @@ export const buildTrie = () => {
   return trie
 }
 
-export const findWords = (trie: {[key: string]: {}}) => {
+export const findWords = (trie) => {
   const board = [
     ["a", "n", "t", "h"],
     ["o", "p", "o", "r"],
@@ -38,16 +38,34 @@ export const findWords = (trie: {[key: string]: {}}) => {
     ["u", "m", "s", "i"],
   ]
   let words = new Set<string>();
-  for (let i = 0; i < board.length; i++ ) {
-    for (let j = 0; j < board[0].length; j++) {
-      if (board[i][j] in trie) {
-        backtrack(i, j, trie)
+  for (let r = 0; r < board.length; r++ ) {
+    for (let c = 0; c < board[0].length; c++) {
+      if (board[r][c] in trie) {
+        backtrack(r, c, trie, board, words)
       }
     }
   }
+  console.log(words)
   return []
 }
 
-const backtrack = (i: number, j: number, trie: {[key: string]: {}}) => {
-  console.log(i, j)
+const backtrack = (r: number, c: number, parent: Trie, board: string[][], words: Set<string>) => {
+  const letter = board[r][c]
+  const node = parent[letter]
+  if ('#' in node) {
+    words.add(node['#'])
+  }
+  board[r][c] = '*'
+  for (let d of directions) {
+    let dr = d[0];
+    let dc = d[1];
+    let nr = r + dr;
+    let nc = c + dc;
+    if (nr < 0 || nr >= board.length || nr < 0 || nc >= board[0].length || !(board[nr][nc] in node)) {
+      continue
+    } else {
+      backtrack(nr, nc, node, board, words)
+    }
+  }
+  board[r][c] = letter
 }
