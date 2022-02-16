@@ -28,3 +28,7 @@ export const buildTrie = () => {
   }
   return {}
 }
+
+export const findWords = (trie: {[key: string]: {}}) => {
+  return []
+}
