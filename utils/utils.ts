@@ -1,4 +1,6 @@
 import Constants from 'expo-constants';
+import { A } from '../words/a';
+import { B } from '../words/b';
 
 export const getURI = () => {
   const { manifest } = Constants;

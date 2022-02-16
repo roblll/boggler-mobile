@@ -1,4 +1,4 @@
-const B = [
+export const B = [
   // 3 letters
   'baa',
   'bad',

@@ -4,13 +4,15 @@ import { View, Dimensions, Platform, Image, StyleSheet } from 'react-native';
 import { Camera, Constants } from 'expo-camera';
 import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';
 
-import { getURI } from './utils/utils';
+import { getURI, buildTrie } from './utils/utils';
 
 import Button from './components/Button';
 import WordsList, { WordsByLength } from './components/WordsList';
 import Loading from './components/Loading';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
+
+const trie = buildTrie();
 
 const App = () => {
   const cameraRef = useRef<Camera | null>();
