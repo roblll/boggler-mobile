@@ -2,6 +2,7 @@ import Constants from 'expo-constants';
 import { A } from '../words/a';
 import { B } from '../words/b';
 const directions = [[-1,0], [-1,1], [0,1], [1,1], [1,0], [1,-1], [0,-1], [-1,-1]];
+type validLetters = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z';
 
 export const getURI = () => {
   const { manifest } = Constants;
@@ -31,7 +32,7 @@ export const buildTrie = () => {
 }
 
 export const findWords = (trie) => {
-  const board = [
+  const board: validLetters[][] = [
     ["a", "n", "t", "h"],
     ["o", "p", "o", "r"],
     ["p", "a", "t", "h"],
