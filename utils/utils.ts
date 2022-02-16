@@ -2,7 +2,10 @@ import Constants from 'expo-constants';
 import { A } from '../words/a';
 import { B } from '../words/b';
 const directions = [[-1,0], [-1,1], [0,1], [1,1], [1,0], [1,-1], [0,-1], [-1,-1]];
-type validLetters = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z';
+type Letters = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z';
+type Trie = {
+  [key: string]: {};
+}
 
 export const getURI = () => {
   const { manifest } = Constants;
@@ -17,7 +20,7 @@ export const getURI = () => {
 
 export const buildTrie = () => {
   const words = A.concat(B)
-  const trie = {}
+  const trie: Trie = {}
   for (let word of words) {
     let cur = trie
     for (let ch of word) {
@@ -31,8 +34,8 @@ export const buildTrie = () => {
   return trie
 }
 
-export const findWords = (trie) => {
-  const board: validLetters[][] = [
+export const findWords = (trie: Trie) => {
+  const board: Letters[][] = [
     ["a", "n", "t", "h"],
     ["o", "p", "o", "r"],
     ["p", "a", "t", "h"],
@@ -52,7 +55,7 @@ export const findWords = (trie) => {
 
 const backtrack = (r: number, c: number, parent: Trie, board: string[][], words: Set<string>) => {
   const letter = board[r][c]
-  const node = parent[letter]
+  const node: any = parent[letter]
   if ('#' in node) {
     words.add(node['#'])
   }
