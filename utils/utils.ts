@@ -1,6 +1,7 @@
 import Constants from 'expo-constants';
 import { A } from '../words/a';
 import { B } from '../words/b';
+const directions = [[-1,0], [-1,1], [0,1], [1,1], [1,0], [1,-1], [0,-1], [-1,-1]];
 
 export const getURI = () => {
   const { manifest } = Constants;
@@ -26,9 +27,27 @@ export const buildTrie = () => {
     }
     cur['#'] = word
   }
-  return {}
+  return trie
 }
 
 export const findWords = (trie: {[key: string]: {}}) => {
+  const board = [
+    ["a", "n", "t", "h"],
+    ["o", "p", "o", "r"],
+    ["p", "a", "t", "h"],
+    ["u", "m", "s", "i"],
+  ]
+  let words = new Set<string>();
+  for (let i = 0; i < board.length; i++ ) {
+    for (let j = 0; j < board[0].length; j++) {
+      if (board[i][j] in trie) {
+        backtrack(i, j, trie)
+      }
+    }
+  }
   return []
+}
+
+const backtrack = (i: number, j: number, trie: {[key: string]: {}}) => {
+  console.log(i, j)
 }
