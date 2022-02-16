@@ -1,6 +1,6 @@
 import Constants from 'expo-constants';
 
-export const getURI =  () => {
+export const getURI = () => {
   const { manifest } = Constants;
   let uri = '';
   if (__DEV__ && manifest?.debuggerHost) {
@@ -9,4 +9,8 @@ export const getURI =  () => {
     uri = `http://boggler-env.eba-v5yi4ctv.us-east-2.elasticbeanstalk.com/test`;
   }
   return uri
+}
+
+export const buildTrie = () => {
+  return {}
 }
