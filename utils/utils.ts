@@ -14,5 +14,17 @@ export const getURI = () => {
 }
 
 export const buildTrie = () => {
+  const words = A.concat(B)
+  const trie: {[key: string]: {}} = {}
+  for (let word of words) {
+    let cur = trie
+    for (let ch of word) {
+      if (!(ch in cur)) {
+        cur[ch] = {}
+      }
+      cur = cur[ch]
+    }
+    cur['#'] = word
+  }
   return {}
 }
