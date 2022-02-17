@@ -68,9 +68,7 @@ const App = () => {
             method: 'POST'
           })
           const { board } = await response.json()
-          const words = findWords(TRIE, board);
-          const foundWords = {"3": ["cat", "dog"], "4": ["ball"], "5": ["apple"]}
-          const count = "4"
+          const {foundWords, count} = findWords(TRIE, board);
           setWords(foundWords)
           setCount(count)
           setBoard(board)

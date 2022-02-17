@@ -67,7 +67,18 @@ export const findWords = (trie: Trie, board: string[][]) => {
       }
     }
   }
-  return words
+  let wordsByLength: {[key: number]: string[]} = {}
+  for (let word of words) {
+    if (word.length in wordsByLength) {
+      wordsByLength[word.length].push(word)
+    } else {
+      wordsByLength[word.length] = [word]
+    }
+  }
+  for (let len in wordsByLength) {
+    wordsByLength[len].sort()
+  }
+  return { foundWords: wordsByLength, count: words.size.toString()}
 }
 
 const backtrack = (r: number, c: number, parent: Trie, board: string[][], words: Set<string>) => {
