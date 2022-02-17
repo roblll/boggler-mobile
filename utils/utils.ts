@@ -1,6 +1,30 @@
 import Constants from 'expo-constants';
 import { A } from '../words/a';
 import { B } from '../words/b';
+import { C } from '../words/c';
+import { D } from '../words/d';
+import { E } from '../words/e';
+import { F } from '../words/f';
+import { G } from '../words/g';
+import { H } from '../words/h';
+import { I } from '../words/i';
+import { J } from '../words/j';
+import { K } from '../words/k';
+import { L } from '../words/l';
+import { M } from '../words/m';
+import { N } from '../words/n';
+import { O } from '../words/o';
+import { P } from '../words/p';
+import { Q } from '../words/q';
+import { R } from '../words/r';
+import { S } from '../words/s';
+import { T } from '../words/t';
+import { U } from '../words/u';
+import { V } from '../words/v';
+import { W } from '../words/w';
+import { X } from '../words/x';
+import { Y } from '../words/y';
+import { Z } from '../words/z';
 const directions = [[-1,0], [-1,1], [0,1], [1,1], [1,0], [1,-1], [0,-1], [-1,-1]];
 type Letters = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z';
 type Trie = {
@@ -19,7 +43,7 @@ export const getURI = () => {
 }
 
 export const buildTrie = () => {
-  const words = A.concat(B)
+  const words = A.concat(B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z)
   const trie: Trie = {}
   for (let word of words) {
     let cur = trie
