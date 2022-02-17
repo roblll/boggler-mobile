@@ -12,8 +12,7 @@ import Loading from './components/Loading';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
-const trie = buildTrie();
-const words = findWords(trie);
+const TRIE = buildTrie();
 
 const App = () => {
   const cameraRef = useRef<Camera | null>();
@@ -69,6 +68,7 @@ const App = () => {
             method: 'POST'
           })
           const { board } = await response.json()
+          const words = findWords(TRIE, board);
           const foundWords = {"3": ["cat", "dog"], "4": ["ball"], "5": ["apple"]}
           const count = "4"
           setWords(foundWords)

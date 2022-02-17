@@ -58,13 +58,7 @@ export const buildTrie = () => {
   return trie
 }
 
-export const findWords = (trie: Trie) => {
-  const board: Letters[][] = [
-    ["a", "n", "t", "h"],
-    ["o", "p", "o", "r"],
-    ["p", "a", "t", "h"],
-    ["u", "m", "s", "i"],
-  ]
+export const findWords = (trie: Trie, board: string[][]) => {
   let words = new Set<string>();
   for (let r = 0; r < board.length; r++ ) {
     for (let c = 0; c < board[0].length; c++) {
@@ -73,8 +67,7 @@ export const findWords = (trie: Trie) => {
       }
     }
   }
-  console.log(words)
-  return []
+  return words
 }
 
 const backtrack = (r: number, c: number, parent: Trie, board: string[][], words: Set<string>) => {
