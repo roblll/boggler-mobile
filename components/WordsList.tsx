@@ -38,25 +38,31 @@ const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame }) => {
     );
   }
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.headerSection}>
-        <View style={styles.foundContainer}>
-          <Text style={styles.foundNumber}>{`${count}`}</Text>
-          <Text style={styles.foundText}>WORDS</Text>
+  if (boardVisible) {
+    return (
+      <View></View>
+    )
+  } else {
+    return (
+      <View style={styles.container}>
+        <View style={styles.headerSection}>
+          <View style={styles.foundContainer}>
+            <Text style={styles.foundNumber}>{`${count}`}</Text>
+            <Text style={styles.foundText}>WORDS</Text>
+          </View>
+          <TouchableOpacity onPress={() => setBoardVisible(true)}>
+            <Board board={board}/>
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={() => alert("test")}>
-          <Board board={board}/>
-        </TouchableOpacity>
+        <ScrollView style={styles.wordsList} showsVerticalScrollIndicator={false}>
+          {getWordsByLength()}
+        </ScrollView>
+        <View style={styles.solveSection}>
+          <Button onClick={solveNewGame} size={WINDOW_WIDTH * .25} icon='camera' />
+        </View>
       </View>
-      <ScrollView style={styles.wordsList} showsVerticalScrollIndicator={false}>
-        {getWordsByLength()}
-      </ScrollView>
-      <View style={styles.solveSection}>
-        <Button onClick={solveNewGame} size={WINDOW_WIDTH * .25} icon='camera' />
-      </View>
-    </View>
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({
