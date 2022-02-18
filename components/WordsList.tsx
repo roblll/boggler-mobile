@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
 
 import WordsSection from './WordsSection';
@@ -20,6 +20,8 @@ export type WordsByLength = {
 }
 
 const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame }) => {
+  const [boardVisible, setBoardVisible] = useState<boolean>(false);
+
   const getWordsByLength = () => {
     let wordsByLenghtSections = []
     for (let length in words) {
