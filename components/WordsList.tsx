@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
 
 import WordsSection from './WordsSection';
 import Button from './Button';
@@ -43,7 +43,9 @@ const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame }) => {
           <Text style={styles.foundNumber}>{`${count}`}</Text>
           <Text style={styles.foundText}>WORDS</Text>
         </View>
-        <Board board={board}/>
+        <TouchableOpacity onPress={() => alert("test")}>
+          <Board board={board}/>
+        </TouchableOpacity>
       </View>
       <ScrollView style={styles.wordsList} showsVerticalScrollIndicator={false}>
         {getWordsByLength()}
