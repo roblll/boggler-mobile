@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity } from
 import WordsSection from './WordsSection';
 import Button from './Button';
 import Board from './Board';
+import EditBoard from './EditBoard';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 const WINDOW_HEIGHT = Dimensions.get('window').height;
@@ -40,7 +41,7 @@ const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame }) => {
 
   if (boardVisible) {
     return (
-      <View></View>
+      <EditBoard />
     )
   } else {
     return (
