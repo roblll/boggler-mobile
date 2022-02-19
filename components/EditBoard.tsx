@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 
 import Button from './Button';
 
@@ -16,28 +16,60 @@ const EditBoard: React.FC<Props> = ({ updateBoard }) => {
       <View style={styles.boardSection}>
         <View style={styles.board}>
           <View style={styles.row}>
-            <View style={styles.cell}></View>
-            <View style={styles.cell}></View>
-            <View style={styles.cell}></View>
-            <View style={styles.cell}></View>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.row}>
-            <View style={styles.cell}></View>
-            <View style={styles.cell}></View>
-            <View style={styles.cell}></View>
-            <View style={styles.cell}></View>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.row}>
-            <View style={styles.cell}></View>
-            <View style={styles.cell}></View>
-            <View style={styles.cell}></View>
-            <View style={styles.cell}></View>
+          <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.row}>
-            <View style={styles.cell}></View>
-            <View style={styles.cell}></View>
-            <View style={styles.cell}></View>
-            <View style={styles.cell}></View>
+          <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>A</Text>
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.bottomBorder} />
@@ -82,12 +114,18 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: WINDOW_WIDTH * .8 * .25 * .9,
     height: WINDOW_WIDTH * .8 * .25 * .9,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   bottomBorder: {
-    // backgroundColor: '#f4d456',
     backgroundColor: '#15343b',
     height: WINDOW_WIDTH * .8 * .25 * .1,
     width: WINDOW_WIDTH * .8,
+  },
+  cellText: {
+    fontSize: WINDOW_WIDTH * .8 * .25 * .60,
+    color: "#15343b",
+    fontWeight: "700",
   }
 })
 
