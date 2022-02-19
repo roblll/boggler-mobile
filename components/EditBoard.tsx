@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Modal } from 'react-native';
 
 import Button from './Button';
 
@@ -16,6 +16,13 @@ const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
 
   return (
     <View style={styles.container}>
+      <Modal
+        visible={false}
+        transparent={true}
+        animationType='fade'
+      >
+        <View></View>
+      </Modal>
       <View style={styles.boardSection}>
         <View style={styles.board}>
           <View style={styles.row}>
