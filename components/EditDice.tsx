@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
-const EditDice = () => {
+type Props = {
+  close: () => void;
+}
+
+const EditDice: React.FC<Props> = ({ close }) => {
   return (
     <View>
       <Text>Edit dice</Text>
+      <Button title='hide' onPress={() => close() }/>
     </View>
   );
 }

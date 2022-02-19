@@ -31,7 +31,7 @@ const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
         transparent={true}
         animationType='fade'
       >
-        <EditDice />
+        <EditDice close={hideEditDice} />
       </Modal>
       <View style={styles.boardSection}>
         <View style={styles.board}>
