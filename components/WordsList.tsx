@@ -39,9 +39,13 @@ const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame }) => {
     );
   }
 
+  const updateBoard = () => {
+    setBoardVisible(false)
+  }
+
   if (boardVisible) {
     return (
-      <EditBoard />
+      <EditBoard updateBoard={updateBoard} />
     )
   } else {
     return (
