@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Modal } from 'react-native';
 
 import Button from './Button';
+import EditDice from './EditDice';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 const WINDOW_HEIGHT = Dimensions.get('window').height;
@@ -13,20 +14,29 @@ type Props = {
 
 const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
   const [newBoard, setNewBoard] = useState<string[][]>(board);
+  const [modalVisible, setModalVisible] = useState<boolean>(false)
+
+  const showEditDice = () => {
+    setModalVisible(true)
+  }
+
+  const hideEditDice = () => {
+    setModalVisible(false)
+  }
 
   return (
     <View style={styles.container}>
       <Modal
-        visible={false}
+        visible={modalVisible}
         transparent={true}
         animationType='fade'
       >
-        <View></View>
+        <EditDice />
       </Modal>
       <View style={styles.boardSection}>
         <View style={styles.board}>
           <View style={styles.row}>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+            <TouchableOpacity style={styles.cell} onPress={() => showEditDice()}>
               <Text style={styles.cellText}>{newBoard[0][0].toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
