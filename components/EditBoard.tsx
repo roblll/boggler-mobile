@@ -15,8 +15,10 @@ type Props = {
 const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
   const [newBoard, setNewBoard] = useState<string[][]>(board);
   const [modalVisible, setModalVisible] = useState<boolean>(false)
+  const [letter, setLetter] = useState<string>("")
 
-  const showEditDice = () => {
+  const showEditDice = (letter: string) => {
+    setLetter(letter)
     setModalVisible(true)
   }
 
@@ -31,12 +33,12 @@ const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
         transparent={true}
         animationType='fade'
       >
-        <EditDice close={hideEditDice} />
+        <EditDice close={hideEditDice} letter={letter} />
       </Modal>
       <View style={styles.boardSection}>
         <View style={styles.board}>
           <View style={styles.row}>
-            <TouchableOpacity style={styles.cell} onPress={() => showEditDice()}>
+            <TouchableOpacity style={styles.cell} onPress={() => showEditDice(newBoard[0][0])}>
               <Text style={styles.cellText}>{newBoard[0][0].toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
