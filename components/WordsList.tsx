@@ -45,7 +45,7 @@ const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame }) => {
 
   if (boardVisible) {
     return (
-      <EditBoard updateBoard={updateBoard} />
+      <EditBoard updateBoard={updateBoard} board={board} />
     )
   } else {
     return (

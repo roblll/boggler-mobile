@@ -8,67 +8,68 @@ const WINDOW_HEIGHT = Dimensions.get('window').height;
 
 type Props = {
   updateBoard: () => void;
+  board: string[][];
 }
 
-const EditBoard: React.FC<Props> = ({ updateBoard }) => {
+const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
   return (
     <View style={styles.container}>
       <View style={styles.boardSection}>
         <View style={styles.board}>
           <View style={styles.row}>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
+              <Text style={styles.cellText}>{board[0][0].toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
+              <Text style={styles.cellText}>{board[0][1].toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
+              <Text style={styles.cellText}>{board[0][2].toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
+              <Text style={styles.cellText}>{board[0][3].toUpperCase()}</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.row}>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
+              <Text style={styles.cellText}>{board[1][0].toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
+              <Text style={styles.cellText}>{board[1][1].toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
+              <Text style={styles.cellText}>{board[1][2].toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.row}>
-          <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
+              <Text style={styles.cellText}>{board[1][3].toUpperCase()}</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.row}>
           <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
+              <Text style={styles.cellText}>{board[2][0].toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
+              <Text style={styles.cellText}>{board[2][1].toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
+              <Text style={styles.cellText}>{board[2][2].toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>A</Text>
+              <Text style={styles.cellText}>{board[2][3].toUpperCase()}</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.row}>
+          <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>{board[3][0].toUpperCase()}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>{board[3][1].toUpperCase()}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>{board[3][2].toUpperCase()}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
+              <Text style={styles.cellText}>{board[3][3].toUpperCase()}</Text>
             </TouchableOpacity>
           </View>
         </View>
