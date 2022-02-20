@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet, Dimensions } from 'react-native';
 
 import ScrollPicker from '../components/ScrollPicker';
@@ -22,6 +22,8 @@ type Props = {
 }
 
 const EditDice: React.FC<Props> = ({ close, letter }) => {
+  const [selected, setSelected] = useState<string>(letter)
+
   return (
     <View style={styles.container}>
       <View style={styles.bg} />
@@ -29,22 +31,22 @@ const EditDice: React.FC<Props> = ({ close, letter }) => {
         <View style={{height: 200, width: 100}}>
           <ScrollPicker
             dataSource={LETTERS}
-            selectedIndex={0}
+            selectedIndex={LETTERS.indexOf(letter.toUpperCase())}
             renderItem={(data, index) => {
               return (
                 <Text style={styles.text}>{data}</Text>
               )
             }}
-            // onValueChange={(data, selectedIndex) => {
-            //   setMinRank(selectedIndex)
-            // }}
+            onValueChange={(data, selectedIndex) => {
+              setSelected(data.toString().toLowerCase())
+            }}
             wrapperHeight={200}
             wrapperColor='#56d7f4'
             itemHeight={200 / 3}
             highlightColor='#fff'
           />
         </View>
-        <Button title='OK' onPress={() => close('a') }/>
+        <Button title='OK' onPress={() => close(selected) }/>
       </View>
     </View>
   );
