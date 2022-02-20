@@ -8,7 +8,7 @@ const WINDOW_WIDTH = Dimensions.get('window').width;
 const WINDOW_HEIGHT = Dimensions.get('window').height;
 
 type Props = {
-  updateBoard: () => void;
+  updateBoard: (newBoard: string[][]) => void;
   board: string[][];
 }
 
@@ -98,7 +98,7 @@ const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
         <View style={styles.bottomBorder} />
       </View>
       <View style={styles.confirmSection}>
-        <Button onClick={updateBoard} size={WINDOW_WIDTH * .25} icon='check-bold' />
+        <Button onClick={() => updateBoard(newBoard)} size={WINDOW_WIDTH * .25} icon='check-bold' />
       </View>
     </View>
   );

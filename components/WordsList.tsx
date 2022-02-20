@@ -14,13 +14,14 @@ type Props = {
   count: string;
   board: string[][];
   solveNewGame: () => void;
+  updateWords: (newBoard: string[][]) => void;
 }
 
 export type WordsByLength = {
   [key: string]: string[];
 }
 
-const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame }) => {
+const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame, updateWords }) => {
   const [boardVisible, setBoardVisible] = useState<boolean>(false);
 
   const getWordsByLength = () => {
@@ -39,8 +40,9 @@ const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame }) => {
     );
   }
 
-  const updateBoard = () => {
+  const updateBoard = (newBoard: string[][]) => {
     setBoardVisible(false)
+    updateWords(newBoard)
   }
 
   if (boardVisible) {

@@ -114,6 +114,10 @@ const App = () => {
     }
   }
 
+  const updateWords = (newBoard: string[][]) => {
+    setBoard(newBoard)
+  }
+
   if (!hasPermission) {
     return <View></View>
   }
@@ -165,7 +169,7 @@ const App = () => {
     );
   } else {
     return (
-      <WordsList words={words} count={count} board={board} solveNewGame={solveNewGame} />
+      <WordsList words={words} count={count} board={board} solveNewGame={solveNewGame} updateWords={updateWords} />
     )
   }
 }
