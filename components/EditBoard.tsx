@@ -16,23 +16,26 @@ const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
   const [newBoard, setNewBoard] = useState<string[][]>(board);
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const [letter, setLetter] = useState<string>("")
+  const [diceLocation, setDiceLocation] = useState<number[]>([0,0])
 
-  const showEditDice = (letter: string) => {
+  const showEditDice = (letter: string, location: number[]) => {
     setLetter(letter)
     setModalVisible(true)
   }
 
-  const hideEditDice = () => {
+  const hideEditDice = (location: number[], letter: string) => {
+    updateDice(location, letter)
     setModalVisible(false)
   }
 
-  const updateDice = (location: number[]) => {
-    const copy: string[][] = []
+  const updateDice = (location: number[], newLetter: string) => {
+    const boardCopy: string[][] = []
     for (let i = 0; i < newBoard.length; i++) {
-      for (let j = 0; i < newBoard[0].length; j++) {
-        copy[i][j] = newBoard[i][j]
-      }
+      boardCopy[i] = newBoard[i].slice()
     }
+    const [row, col] = location
+    boardCopy[row][col] = newLetter
+    setNewBoard(boardCopy)
   }
 
   return (
@@ -47,7 +50,7 @@ const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
       <View style={styles.boardSection}>
         <View style={styles.board}>
           <View style={styles.row}>
-            <TouchableOpacity style={styles.cell} onPress={() => showEditDice(newBoard[0][0])}>
+            <TouchableOpacity style={styles.cell} onPress={() => showEditDice(newBoard[0][0], [0,0])}>
               <Text style={styles.cellText}>{newBoard[0][0].toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
