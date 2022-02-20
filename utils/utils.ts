@@ -101,3 +101,5 @@ const backtrack = (r: number, c: number, parent: Trie, board: string[][], words:
   }
   board[r][c] = letter
 }
+
+export const LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Qu", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];

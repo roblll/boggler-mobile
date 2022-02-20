@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Button, StyleSheet, Dimensions } from 'react-native';
 
 import ScrollPicker from '../components/ScrollPicker';
+import { LETTERS } from '../utils/utils';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -27,7 +28,7 @@ const EditDice: React.FC<Props> = ({ close, letter }) => {
       <View style={styles.content}>
         <View style={{height: 200, width: 100}}>
           <ScrollPicker
-            dataSource={['A', 'B', 'C', 'D', 'E', 'F']}
+            dataSource={LETTERS}
             selectedIndex={0}
             renderItem={(data, index) => {
               return (
