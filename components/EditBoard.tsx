@@ -50,60 +50,48 @@ const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
       <View style={styles.boardSection}>
         <View style={styles.board}>
           <View style={styles.row}>
-            <TouchableOpacity style={styles.cell} onPress={() => showEditDice(newBoard[0][0], [0,0])}>
-              <Text style={styles.cellText}>{newBoard[0][0].toUpperCase()}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[0][1].toUpperCase()}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[0][2].toUpperCase()}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[0][3].toUpperCase()}</Text>
-            </TouchableOpacity>
+            {newBoard[0].map((letter, index) => (
+              <TouchableOpacity 
+                style={styles.cell} 
+                onPress={() => showEditDice(letter, [0,index])}
+                key={index}
+              >
+                <Text style={styles.cellText}>{letter.toUpperCase()}</Text>
+              </TouchableOpacity>
+            ))}
           </View>
           <View style={styles.row}>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[1][0].toUpperCase()}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[1][1].toUpperCase()}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[1][2].toUpperCase()}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[1][3].toUpperCase()}</Text>
-            </TouchableOpacity>
+            {newBoard[1].map((letter, index) => (
+              <TouchableOpacity 
+                style={styles.cell} 
+                onPress={() => showEditDice(letter, [1,index])}
+                key={index}
+              >
+                <Text style={styles.cellText}>{letter.toUpperCase()}</Text>
+              </TouchableOpacity>
+              ))}
           </View>
           <View style={styles.row}>
-          <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[2][0].toUpperCase()}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[2][1].toUpperCase()}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[2][2].toUpperCase()}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[2][3].toUpperCase()}</Text>
-            </TouchableOpacity>
+            {newBoard[2].map((letter, index) => (
+              <TouchableOpacity 
+                style={styles.cell} 
+                onPress={() => showEditDice(letter, [2,index])}
+                key={index}
+              >
+                <Text style={styles.cellText}>{letter.toUpperCase()}</Text>
+              </TouchableOpacity>
+            ))}
           </View>
           <View style={styles.row}>
-          <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[3][0].toUpperCase()}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[3][1].toUpperCase()}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[3][2].toUpperCase()}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.cell} onPress={() => alert('a')}>
-              <Text style={styles.cellText}>{newBoard[3][3].toUpperCase()}</Text>
-            </TouchableOpacity>
+            {newBoard[3].map((letter, index) => (
+              <TouchableOpacity 
+                style={styles.cell} 
+                onPress={() => showEditDice(letter, [3,index])}
+                key={index}
+              >
+                <Text style={styles.cellText}>{letter.toUpperCase()}</Text>
+              </TouchableOpacity>
+            ))}
           </View>
         </View>
         <View style={styles.bottomBorder} />
