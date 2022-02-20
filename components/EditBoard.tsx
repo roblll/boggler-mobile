@@ -21,19 +21,20 @@ const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
   const showEditDice = (letter: string, location: number[]) => {
     setLetter(letter)
     setModalVisible(true)
+    setDiceLocation(location)
   }
 
-  const hideEditDice = (location: number[], letter: string) => {
-    updateDice(location, letter)
+  const hideEditDice = (letter: string) => {
+    updateDice(letter)
     setModalVisible(false)
   }
 
-  const updateDice = (location: number[], newLetter: string) => {
+  const updateDice = (newLetter: string) => {
     const boardCopy: string[][] = []
     for (let i = 0; i < newBoard.length; i++) {
       boardCopy[i] = newBoard[i].slice()
     }
-    const [row, col] = location
+    const [row, col] = diceLocation
     boardCopy[row][col] = newLetter
     setNewBoard(boardCopy)
   }
