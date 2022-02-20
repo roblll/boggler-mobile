@@ -26,6 +26,15 @@ const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
     setModalVisible(false)
   }
 
+  const updateDice = (location: number[]) => {
+    const copy: string[][] = []
+    for (let i = 0; i < newBoard.length; i++) {
+      for (let j = 0; i < newBoard[0].length; j++) {
+        copy[i][j] = newBoard[i][j]
+      }
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Modal
