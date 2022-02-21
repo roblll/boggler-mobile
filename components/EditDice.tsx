@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 
 import ScrollPicker from '../components/ScrollPicker';
+import Button from './Button';
 import { LETTERS } from '../utils/utils';
 
 const width = Dimensions.get('window').width;
@@ -46,7 +47,9 @@ const EditDice: React.FC<Props> = ({ close, letter }) => {
             highlightColor='#fff'
           />
         </View>
-        <Button title='OK' onPress={() => close(selected) }/>
+        <View style={styles.buttonSection}>
+          <Button onClick={() => close(selected)} size={width * .8 * .25 * .60} icon='autorenew' />
+        </View>
       </View>
     </View>
   );
@@ -81,6 +84,9 @@ const styles = StyleSheet.create({
     fontSize: width * .8 * .25 * .60,
     color: "#15343b",
     fontWeight: "700",
+  },
+  buttonSection: {
+    margin: 25,
   }
 })
 
