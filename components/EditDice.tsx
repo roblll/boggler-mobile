@@ -7,12 +7,12 @@ import { LETTERS } from '../utils/utils';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-const contentWidth = width * .55;
-const contentHeight = contentWidth * 1056 / 691;
-const maxContentWidth = 300;
-const maxContentHeight = maxContentWidth * 1056 / 691;
-let scrollPickerWidth = contentWidth * 6 / 15;
-const scrollPickerHeight = Dimensions.get('window').height / 6 * .75;
+const contentHeight = height * .5;
+const contentWidth = width * .4;
+// const maxContentWidth = 300;
+// const maxContentHeight = maxContentWidth * 1056 / 691;
+let scrollPickerWidth = contentWidth * .5;
+const scrollPickerHeight = contentHeight * .5;
 if (scrollPickerWidth * 2 > 300) {
   scrollPickerWidth = 300 * 6 / 15;
 }
@@ -29,23 +29,25 @@ const EditDice: React.FC<Props> = ({ close, letter }) => {
     <View style={styles.container}>
       <View style={styles.bg} />
       <View style={styles.content}>
-        <View style={{height: 200, width: 100}}>
-          <ScrollPicker
-            dataSource={LETTERS}
-            selectedIndex={LETTERS.indexOf(letter.toUpperCase())}
-            renderItem={(data, index) => {
-              return (
-                <Text style={styles.text}>{data}</Text>
-              )
-            }}
-            onValueChange={(data, selectedIndex) => {
-              setSelected(data.toString().toLowerCase())
-            }}
-            wrapperHeight={200}
-            wrapperColor='#56d7f4'
-            itemHeight={200 / 3}
-            highlightColor='#fff'
-          />
+        <View style={styles.scrollSection}>
+          <View style={styles.scrollContent}>
+            <ScrollPicker
+              dataSource={LETTERS}
+              selectedIndex={LETTERS.indexOf(letter.toUpperCase())}
+              renderItem={(data, index) => {
+                return (
+                  <Text style={styles.text}>{data}</Text>
+                )
+              }}
+              onValueChange={(data, selectedIndex) => {
+                setSelected(data.toString().toLowerCase())
+              }}
+              wrapperHeight={scrollPickerHeight}
+              wrapperColor='#56d7f4'
+              itemHeight={200 / 3}
+              highlightColor='#fff'
+            />
+          </View>
         </View>
         <View style={styles.buttonSection}>
           <Button onClick={() => close(selected)} size={width * .8 * .25 * .60} icon='autorenew' />
@@ -65,13 +67,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     height: contentHeight,
     width: contentWidth,
-    maxWidth: maxContentWidth,
-    maxHeight: maxContentHeight,
+    // maxWidth: maxContentWidth,
+    // maxHeight: maxContentHeight,
     backgroundColor: '#56d7f4',
     borderColor: '#fff',
-    borderWidth: 5,
-    justifyContent: 'center',
-    alignItems: 'center'
+    borderWidth: 7,
   },
   bg: {
     flex: 1,
@@ -82,12 +82,23 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: width * .8 * .25 * .60,
-    color: "#15343b",
+    color: '#15343b',
     fontWeight: "700",
   },
   buttonSection: {
-    margin: 25,
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+  },
+  scrollSection: {
+    flex: 2, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+  },
+  scrollContent: {
+    height: scrollPickerHeight,
+    width: scrollPickerWidth,
+  },
 })
 
 export default EditDice;
