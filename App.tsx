@@ -116,6 +116,9 @@ const App = () => {
 
   const updateWords = (newBoard: string[][]) => {
     setBoard(newBoard)
+    const {foundWords, count} = findWords(TRIE, newBoard);
+    setWords(foundWords)
+    setCount(count)
   }
 
   if (!hasPermission) {
