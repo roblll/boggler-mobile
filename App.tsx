@@ -23,7 +23,7 @@ const App = () => {
   const [flashOn, setFlashOn] = useState<boolean>(false);
   const [words, setWords] = useState<WordsByLength>({});
   const [count, setCount] = useState<string>("0");
-  const [board, setBoard] = useState([["", "", "", ""], ["", "", "", ""], ["", "", "", ""], ["", "", "", ""]]);
+  const [board, setBoard] = useState([["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"]]);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
