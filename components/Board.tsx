@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
   cell: {
     borderWidth: 1,
     borderColor: "#15343b",
-    width: 20,
-    height: 20,
+    width: 23,
+    height: 23,
     justifyContent: "center",
     alignItems: "center",
   },

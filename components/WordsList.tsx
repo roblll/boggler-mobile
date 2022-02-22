@@ -114,8 +114,8 @@ const styles = StyleSheet.create({
   },
   foundContainer: {
     backgroundColor: "#56d7f4",
-    width: 82,
-    height: 82,
+    width: 92,
+    height: 92,
     borderWidth: 2,
     borderColor: "#15343b",
     justifyContent: "center",
