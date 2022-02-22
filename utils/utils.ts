@@ -84,7 +84,10 @@ export const findWords = (trie: Trie, board: string[][]) => {
 
 const backtrack = (r: number, c: number, parent: Trie, board: string[][], words: Set<string>) => {
   const letter = board[r][c]
-  const node: any = parent[letter]
+  let node: any = parent[letter]
+  if (letter == 'q') {
+    node = node['u']
+  }
   if ('#' in node) {
     words.add(node['#'])
   }
