@@ -11,6 +11,9 @@ const Board: React.FC<Props> = ({ board }) => {
     copy.push([])
     for (let j = 0; j < board[0].length; j++) {
       copy[i][j] = board[i][j].toUpperCase()
+      if (copy[i][j] === 'Q') {
+        copy[i][j] = 'Qu'
+      }
     }
   }
 
