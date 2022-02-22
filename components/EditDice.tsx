@@ -40,7 +40,11 @@ const EditDice: React.FC<Props> = ({ close, letter }) => {
                 )
               }}
               onValueChange={(data, selectedIndex) => {
-                setSelected(data.toString().toLowerCase())
+                let letter = data.toString().toLowerCase()
+                if (letter === 'qu') {
+                  letter = 'q'
+                }
+                setSelected(letter)
               }}
               wrapperHeight={scrollPickerHeight}
               wrapperColor='#56d7f4'
