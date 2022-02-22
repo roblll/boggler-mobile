@@ -9,8 +9,6 @@ const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const contentHeight = height * .5;
 const contentWidth = width * .4;
-// const maxContentWidth = 300;
-// const maxContentHeight = maxContentWidth * 1056 / 691;
 let scrollPickerWidth = contentWidth * .5;
 const scrollPickerHeight = contentHeight * .5;
 if (scrollPickerWidth * 2 > 300) {
@@ -23,6 +21,10 @@ type Props = {
 }
 
 const EditDice: React.FC<Props> = ({ close, letter }) => {
+  let selectedLetter = letter.toUpperCase();
+  if (selectedLetter == 'Q') {
+    selectedLetter = 'Qu';
+  }
   const [selected, setSelected] = useState<string>(letter)
 
   return (
@@ -33,7 +35,7 @@ const EditDice: React.FC<Props> = ({ close, letter }) => {
           <View style={styles.scrollContent}>
             <ScrollPicker
               dataSource={LETTERS}
-              selectedIndex={LETTERS.indexOf(letter.toUpperCase())}
+              selectedIndex={LETTERS.indexOf(selectedLetter)}
               renderItem={(data, index) => {
                 return (
                   <Text style={styles.text}>{data}</Text>
