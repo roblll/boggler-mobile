@@ -51,48 +51,72 @@ const EditBoard: React.FC<Props> = ({ updateBoard, board }) => {
       <View style={styles.boardSection}>
         <View style={styles.board}>
           <View style={styles.row}>
-            {newBoard[0].map((letter, index) => (
-              <TouchableOpacity 
-                style={styles.cell} 
-                onPress={() => showEditDice(letter, [0,index])}
-                key={index}
-              >
-                <Text style={styles.cellText}>{letter.toUpperCase()}</Text>
-              </TouchableOpacity>
-            ))}
+            {newBoard[0].map((letter, index) => {
+              let letterDisplay = letter.toUpperCase()
+              if (letterDisplay === 'Q') {
+                letterDisplay = 'Qu'
+              }
+              return (
+                <TouchableOpacity 
+                  style={styles.cell} 
+                  onPress={() => showEditDice(letter, [0, index])}
+                  key={index}
+                >
+                  <Text style={styles.cellText}>{letterDisplay}</Text>
+                </TouchableOpacity>
+              )
+            })}
           </View>
           <View style={styles.row}>
-            {newBoard[1].map((letter, index) => (
-              <TouchableOpacity 
-                style={styles.cell} 
-                onPress={() => showEditDice(letter, [1,index])}
-                key={index}
-              >
-                <Text style={styles.cellText}>{letter.toUpperCase()}</Text>
-              </TouchableOpacity>
-              ))}
+            {newBoard[1].map((letter, index) => {
+              let letterDisplay = letter.toUpperCase()
+              if (letterDisplay === 'Q') {
+                letterDisplay = 'Qu'
+              }
+              return (
+                <TouchableOpacity 
+                  style={styles.cell} 
+                  onPress={() => showEditDice(letter, [1, index])}
+                  key={index}
+                >
+                  <Text style={styles.cellText}>{letterDisplay}</Text>
+                </TouchableOpacity>
+              )
+            })}
           </View>
           <View style={styles.row}>
-            {newBoard[2].map((letter, index) => (
-              <TouchableOpacity 
-                style={styles.cell} 
-                onPress={() => showEditDice(letter, [2,index])}
-                key={index}
-              >
-                <Text style={styles.cellText}>{letter.toUpperCase()}</Text>
-              </TouchableOpacity>
-            ))}
+            {newBoard[2].map((letter, index) => {
+              let letterDisplay = letter.toUpperCase()
+              if (letterDisplay === 'Q') {
+                letterDisplay = 'Qu'
+              }
+              return (
+                <TouchableOpacity 
+                  style={styles.cell} 
+                  onPress={() => showEditDice(letter, [2, index])}
+                  key={index}
+                >
+                  <Text style={styles.cellText}>{letterDisplay}</Text>
+                </TouchableOpacity>
+              )
+            })}
           </View>
           <View style={styles.row}>
-            {newBoard[3].map((letter, index) => (
-              <TouchableOpacity 
-                style={styles.cell} 
-                onPress={() => showEditDice(letter, [3,index])}
-                key={index}
-              >
-                <Text style={styles.cellText}>{letter.toUpperCase()}</Text>
-              </TouchableOpacity>
-            ))}
+            {newBoard[3].map((letter, index) => {
+              let letterDisplay = letter.toUpperCase()
+              if (letterDisplay === 'Q') {
+                letterDisplay = 'Qu'
+              }
+              return (
+                <TouchableOpacity 
+                  style={styles.cell} 
+                  onPress={() => showEditDice(letter, [3, index])}
+                  key={index}
+                >
+                  <Text style={styles.cellText}>{letterDisplay}</Text>
+                </TouchableOpacity>
+              )
+            })}
           </View>
         </View>
         <View style={styles.bottomBorder} />
