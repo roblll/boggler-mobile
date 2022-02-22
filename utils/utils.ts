@@ -1,4 +1,5 @@
 import Constants from 'expo-constants';
+import Board from '../components/Board';
 import { A } from '../words/a';
 import { B } from '../words/b';
 import { C } from '../words/c';
@@ -103,3 +104,11 @@ const backtrack = (r: number, c: number, parent: Trie, board: string[][], words:
 }
 
 export const LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Qu", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+export const convertToLowerCase = (board: string[][]) => {
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[0].length; j++) {
+      board[i][j] = board[i][j].toLowerCase()
+    }
+  }
+}

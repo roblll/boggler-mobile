@@ -4,7 +4,7 @@ import { View, Dimensions, Platform, Image, StyleSheet } from 'react-native';
 import { Camera, Constants } from 'expo-camera';
 import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';
 
-import { getURI, buildTrie, findWords } from './utils/utils';
+import { getURI, buildTrie, findWords, convertToLowerCase } from './utils/utils';
 
 import Button from './components/Button';
 import WordsList, { WordsByLength } from './components/WordsList';
@@ -116,6 +116,7 @@ const App = () => {
 
   const updateWords = (newBoard: string[][]) => {
     setLoading(true)
+    convertToLowerCase(newBoard)
     setTimeout(() => {
       setBoard(newBoard)
       const {foundWords, count} = findWords(TRIE, newBoard);
