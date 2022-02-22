@@ -1,26 +1,34 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ColorPropType } from 'react-native';
 
 type Props = {
   board: string[][];
 }
 
-const Board: React.FC<Props> = ({board}) => {
+const Board: React.FC<Props> = ({ board }) => {
+  const copy: string[][] = []
+  for (let i = 0; i < board.length; i++) {
+    copy.push([])
+    for (let j = 0; j < board[0].length; j++) {
+      copy[i][j] = board[i][j].toUpperCase()
+    }
+  }
+
   let row1: JSX.Element[] = []
-  board[0].forEach((letter, index) => {
-    row1.push(<View key={index} style={styles.cell}><Text style={styles.letter}>{letter.toUpperCase()}</Text></View>)
+  copy[0].forEach((letter, index) => {
+    row1.push(<View key={index} style={styles.cell}><Text style={styles.letter}>{letter}</Text></View>)
   });
   let row2: JSX.Element[] = []
-  board[1].forEach((letter, index) => {
-    row2.push(<View key={index} style={styles.cell}><Text style={styles.letter}>{letter.toUpperCase()}</Text></View>)
+  copy[1].forEach((letter, index) => {
+    row2.push(<View key={index} style={styles.cell}><Text style={styles.letter}>{letter}</Text></View>)
   });
   let row3: JSX.Element[] = []
-  board[2].forEach((letter, index) => {
-    row3.push(<View key={index} style={styles.cell}><Text style={styles.letter}>{letter.toUpperCase()}</Text></View>)
+  copy[2].forEach((letter, index) => {
+    row3.push(<View key={index} style={styles.cell}><Text style={styles.letter}>{letter}</Text></View>)
   });
   let row4: JSX.Element[] = []
-  board[3].forEach((letter, index) => {
-    row4.push(<View key={index} style={styles.cell}><Text style={styles.letter}>{letter.toUpperCase()}</Text></View>)
+  copy[3].forEach((letter, index) => {
+    row4.push(<View key={index} style={styles.cell}><Text style={styles.letter}>{letter}</Text></View>)
   });
 
   return (
