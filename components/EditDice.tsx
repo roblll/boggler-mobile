@@ -50,7 +50,7 @@ const EditDice: React.FC<Props> = ({ close, letter }) => {
               }}
               wrapperHeight={scrollPickerHeight}
               wrapperColor='#56d7f4'
-              itemHeight={200 / 3}
+              itemHeight={scrollPickerHeight / 3}
               highlightColor='#fff'
             />
           </View>
@@ -73,8 +73,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     height: contentHeight,
     width: contentWidth,
-    // maxWidth: maxContentWidth,
-    // maxHeight: maxContentHeight,
     backgroundColor: '#56d7f4',
     borderColor: '#fff',
     borderWidth: 7,
@@ -87,7 +85,7 @@ const styles = StyleSheet.create({
     width: width,
   },
   text: {
-    fontSize: width * .8 * .25 * .60,
+    fontSize: scrollPickerHeight * .8 * .3,
     color: '#15343b',
     fontWeight: "700",
   },
