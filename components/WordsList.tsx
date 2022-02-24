@@ -6,7 +6,10 @@ import Button from './Button';
 import Board from './Board';
 import EditBoard from './EditBoard';
 
-const WINDOW_WIDTH = Dimensions.get('window').width;
+let WINDOW_WIDTH = Dimensions.get('window').width;
+if (WINDOW_WIDTH > 450) {
+  WINDOW_WIDTH = Dimensions.get('window').width * .7;
+}
 const WINDOW_HEIGHT = Dimensions.get('window').height;
 
 type Props = {
@@ -51,21 +54,23 @@ const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame, updateW
     )
   } else {
     return (
-      <View style={styles.container}>
-        <View style={styles.headerSection}>
-          <View style={styles.foundContainer}>
-            <Text style={styles.foundNumber}>{`${count}`}</Text>
-            <Text style={styles.foundText}>WORDS</Text>
+      <View style={styles.outer}>
+        <View style={styles.container}>
+          <View style={styles.headerSection}>
+            <View style={styles.foundContainer}>
+              <Text style={styles.foundNumber}>{`${count}`}</Text>
+              <Text style={styles.foundText}>WORDS</Text>
+            </View>
+            <TouchableOpacity onPress={() => setBoardVisible(true)}>
+              <Board board={board}/>
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity onPress={() => setBoardVisible(true)}>
-            <Board board={board}/>
-          </TouchableOpacity>
-        </View>
-        <ScrollView style={styles.wordsList} showsVerticalScrollIndicator={false}>
-          {getWordsByLength()}
-        </ScrollView>
-        <View style={styles.solveSection}>
-          <Button onClick={solveNewGame} size={WINDOW_WIDTH * .25} icon='camera' />
+          <ScrollView style={styles.wordsList} showsVerticalScrollIndicator={false}>
+            {getWordsByLength()}
+          </ScrollView>
+          <View style={styles.solveSection}>
+            <Button onClick={solveNewGame} size={WINDOW_WIDTH * .25} icon='camera' />
+          </View>
         </View>
       </View>
     );
@@ -73,11 +78,17 @@ const WordsList: React.FC<Props> = ({ words, count, board, solveNewGame, updateW
 }
 
 const styles = StyleSheet.create({
+  outer: {
+    flex: 1,
+    backgroundColor: '#f4d456',
+    alignItems: 'center',
+  },
   container: {
     flex: 1,
     paddingTop: WINDOW_HEIGHT * .1,
     alignItems: 'center',
     backgroundColor: '#f4d456',
+    width: WINDOW_WIDTH,
   },
   solveSection: {
     width: '100%',
