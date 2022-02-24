@@ -10,7 +10,10 @@ import Button from './components/Button';
 import WordsList, { WordsByLength } from './components/WordsList';
 import Loading from './components/Loading';
 
-const WINDOW_WIDTH = Dimensions.get('window').width;
+let WINDOW_WIDTH = Dimensions.get('window').width;
+if (WINDOW_WIDTH > 450) {
+  WINDOW_WIDTH = Dimensions.get('window').width * .7;
+}
 
 const TRIE = buildTrie();
 
@@ -137,41 +140,43 @@ const App = () => {
 
   if (showCamera) {
     return (
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        <Camera 
-          ref={(camera) => {
-            cameraRef.current = camera
-          }}
-          style={{
-            height: WINDOW_WIDTH * aspectRatio,
-            width: WINDOW_WIDTH
-          }}
-          onCameraReady={prepareRatio}
-          ratio={cameraRatio}
-          useCamera2Api={true}
-          type={Constants.Type.back}
-          flashMode={flashOn ? Camera.Constants.FlashMode.on : Camera.Constants.FlashMode.off}
-        />
-        <View style={styles.buttonContainer}>
-          <Button 
-            onClick={toggleFlash} 
-            size={WINDOW_WIDTH * .25 * .5} 
-            icon={flashOn ? 'flash' : 'flash-off'}
+      <View style={styles.outer}>
+        <View style={styles.container}>
+          <StatusBar style="auto" />
+          <Camera 
+            ref={(camera) => {
+              cameraRef.current = camera
+            }}
+            style={{
+              height: WINDOW_WIDTH * aspectRatio,
+              width: WINDOW_WIDTH
+            }}
+            onCameraReady={prepareRatio}
+            ratio={cameraRatio}
+            useCamera2Api={true}
+            type={Constants.Type.back}
+            flashMode={flashOn ? Camera.Constants.FlashMode.on : Camera.Constants.FlashMode.off}
           />
-          <Button onClick={onSnap} size={WINDOW_WIDTH * .25} />
-          <Button onClick={showWordsList} size={WINDOW_WIDTH * .25 * .5} icon='close' />
+          <View style={styles.buttonContainer}>
+            <Button 
+              onClick={toggleFlash} 
+              size={WINDOW_WIDTH * .25 * .5} 
+              icon={flashOn ? 'flash' : 'flash-off'}
+            />
+            <Button onClick={onSnap} size={WINDOW_WIDTH * .25} />
+            <Button onClick={showWordsList} size={WINDOW_WIDTH * .25 * .5} icon='close' />
+          </View>
+          <Image
+            source={require('./assets/grid.png')}
+            style={{
+              position: 'absolute', 
+              left: WINDOW_WIDTH * .1, 
+              top: ((WINDOW_WIDTH * (aspectRatio)) / 2) - (WINDOW_WIDTH * .8 / 2), 
+              height: WINDOW_WIDTH * .8, 
+              width: WINDOW_WIDTH * .8
+            }}
+          />
         </View>
-        <Image
-          source={require('./assets/grid.png')}
-          style={{
-            position: 'absolute', 
-            left: WINDOW_WIDTH * .1, 
-            top: ((WINDOW_WIDTH * (aspectRatio)) / 2) - (WINDOW_WIDTH * .8 / 2), 
-            height: WINDOW_WIDTH * .8, 
-            width: WINDOW_WIDTH * .8
-          }}
-        />
       </View>
     );
   } else {
@@ -182,9 +187,15 @@ const App = () => {
 }
 
 const styles = StyleSheet.create({
+  outer: {
+    flex: 1,
+    backgroundColor: '#15343b',
+    alignItems: 'center',
+  },
   container: {
     flex: 1,
     backgroundColor: '#f4d456',
+    width: WINDOW_WIDTH,
   },
   buttonContainer: {
     flex: 1,
