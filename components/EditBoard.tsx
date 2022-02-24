@@ -4,7 +4,10 @@ import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Modal } from 'rea
 import Button from './Button';
 import EditDice from './EditDice';
 
-const WINDOW_WIDTH = Dimensions.get('window').width;
+let WINDOW_WIDTH = Dimensions.get('window').width;
+if (WINDOW_WIDTH > 450) {
+  WINDOW_WIDTH = Dimensions.get('window').width * .7;
+}
 const WINDOW_HEIGHT = Dimensions.get('window').height;
 
 type Props = {
