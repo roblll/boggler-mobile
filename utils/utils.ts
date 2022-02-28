@@ -36,9 +36,9 @@ export const getURI = () => {
   const { manifest } = Constants;
   let uri = '';
   if (__DEV__ && manifest?.debuggerHost) {
-    uri = `http://${manifest.debuggerHost.split(":").shift()}:3000/api`;
+    uri = `http://${manifest.debuggerHost.split(":").shift()}:5000/api`;
   } else {
-    uri = `http://boggler-env.eba-v5yi4ctv.us-east-2.elasticbeanstalk.com/api`;
+    uri = `http://ec2-3-133-104-238.us-east-2.compute.amazonaws.com:8888/api`;
   }
   return uri
 }
