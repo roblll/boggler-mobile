@@ -30,7 +30,7 @@ const App = () => {
   const [count, setCount] = useState<string>("0");
   const [board, setBoard] = useState([["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"]]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [showRestart, setShowRestart] = useState<boolean>(false);
+  const [showRestart, setShowRestart] = useState<boolean>(true);
 
   useEffect(() => {
     onHandlePermission();
