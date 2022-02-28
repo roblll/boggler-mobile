@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Dimensions, Platform, Image, StyleSheet } from 'react-native';
 import { Camera, Constants } from 'expo-camera';
 import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';
+import * as Updates from "expo-updates";
 
 import { getURI, buildTrie, findWords } from './utils/utils';
 
@@ -31,12 +32,21 @@ const App = () => {
 
   useEffect(() => {
     onHandlePermission();
+    checkForUpdates()
   }, []);
 
   const onHandlePermission = async () => {
     const { status } = await Camera.requestPermissionsAsync();
     setHasPermission(status === 'granted');
   };
+
+  const checkForUpdates = async () => {
+    if (!__DEV__) {
+      console.log("prod")
+    } else {
+      console.log("dev")
+    }
+  }
 
   const onSnap = async () => {
     if (cameraRef.current) {
