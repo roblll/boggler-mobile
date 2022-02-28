@@ -10,6 +10,7 @@ import { getURI, buildTrie, findWords } from './utils/utils';
 import Button from './components/Button';
 import WordsList, { WordsByLength } from './components/WordsList';
 import Loading from './components/Loading';
+import Restart from './components/Restart';
 
 let WINDOW_WIDTH = Dimensions.get('window').width;
 if (WINDOW_WIDTH > 450) {
@@ -142,6 +143,10 @@ const App = () => {
 
   if (!hasPermission) {
     return <View></View>
+  }
+
+  if (showRestart) {
+    return <Restart />
   }
 
   if (loading) {
