@@ -29,6 +29,7 @@ const App = () => {
   const [count, setCount] = useState<string>("0");
   const [board, setBoard] = useState([["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"]]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [showRestart, setShowRestart] = useState<boolean>(false);
 
   useEffect(() => {
     onHandlePermission();
@@ -42,9 +43,10 @@ const App = () => {
 
   const checkForUpdates = async () => {
     if (!__DEV__) {
-      console.log("prod")
-    } else {
-      console.log("dev")
+      try {
+        const { isAvailable } = await Updates.checkForUpdateAsync();
+        setShowRestart(isAvailable);
+      } catch (e) {}
     }
   }
 
