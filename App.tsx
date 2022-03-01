@@ -40,7 +40,7 @@ const App = () => {
   }, []);
 
   const onHandlePermission = async () => {
-    const { status } = await Camera.requestPermissionsAsync();
+    const { status } = await Camera.requestCameraPermissionsAsync();
     setHasPermission(status === 'granted');
   };
 
@@ -143,14 +143,6 @@ const App = () => {
       setLoading(false)
     }, 1500);
   }
-
-  // if (!hasPermission) {
-  //   if (showCamera) {
-  //     return <CameraDisabled showWordsList={() => showWordsList()} />
-  //   } else {
-  //     <WordsList words={words} count={count} board={board} solveNewGame={solveNewGame} updateWords={updateWords} />
-  //   }
-  // }
 
   if (showRestart) {
     return <Restart />
