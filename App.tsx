@@ -32,6 +32,7 @@ const App = () => {
   const [board, setBoard] = useState([["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"]]);
   const [loading, setLoading] = useState<boolean>(false);
   const [showRestart, setShowRestart] = useState<boolean>(false);
+  const [showCameraMessage, setShowCameraMessage] = useState<boolean>(false);
 
   useEffect(() => {
     onHandlePermission();
@@ -116,6 +117,7 @@ const App = () => {
   }
 
   const solveNewGame = () => {
+    setShowCameraMessage(false)
     setShowCamera(true)
   }
 
@@ -142,13 +144,13 @@ const App = () => {
     }, 1500);
   }
 
-  if (!hasPermission) {
-    if (showCamera) {
-      return <CameraDisabled showWordsList={() => showWordsList()} />
-    } else {
-      <WordsList words={words} count={count} board={board} solveNewGame={solveNewGame} updateWords={updateWords} />
-    }
-  }
+  // if (!hasPermission) {
+  //   if (showCamera) {
+  //     return <CameraDisabled showWordsList={() => showWordsList()} />
+  //   } else {
+  //     <WordsList words={words} count={count} board={board} solveNewGame={solveNewGame} updateWords={updateWords} />
+  //   }
+  // }
 
   if (showRestart) {
     return <Restart />
@@ -165,39 +167,64 @@ const App = () => {
       <View style={styles.outer}>
         <View style={styles.container}>
           <StatusBar style="auto" />
-          <Camera 
-            ref={(camera) => {
-              cameraRef.current = camera
-            }}
-            style={{
+          {hasPermission && 
+            <Camera 
+              ref={(camera) => {
+                cameraRef.current = camera
+              }}
+              style={{
+                height: WINDOW_WIDTH * aspectRatio,
+                width: WINDOW_WIDTH
+              }}
+              onCameraReady={prepareRatio}
+              ratio={cameraRatio}
+              useCamera2Api={true}
+              type={Constants.Type.back}
+              flashMode={flashOn ? Camera.Constants.FlashMode.on : Camera.Constants.FlashMode.off}
+            />
+          }
+          {!hasPermission && !showCameraMessage &&
+            <View style={{
               height: WINDOW_WIDTH * aspectRatio,
-              width: WINDOW_WIDTH
-            }}
-            onCameraReady={prepareRatio}
-            ratio={cameraRatio}
-            useCamera2Api={true}
-            type={Constants.Type.back}
-            flashMode={flashOn ? Camera.Constants.FlashMode.on : Camera.Constants.FlashMode.off}
-          />
+              width: WINDOW_WIDTH,
+              backgroundColor: 'black',
+            }} />
+          }
+          {!hasPermission && showCameraMessage &&
+            <View style={{
+              height: WINDOW_WIDTH * aspectRatio,
+              width: WINDOW_WIDTH,
+              backgroundColor: 'black',
+            }}>
+              <CameraDisabled />
+            </View>
+          }
           <View style={styles.buttonContainer}>
             <Button 
               onClick={toggleFlash} 
               size={WINDOW_WIDTH * .25 * .5} 
               icon={flashOn ? 'flash' : 'flash-off'}
             />
-            <Button onClick={onSnap} size={WINDOW_WIDTH * .25} />
+            {hasPermission && 
+              <Button onClick={onSnap} size={WINDOW_WIDTH * .25} />
+            }
+            {!hasPermission && 
+              <Button onClick={() => setShowCameraMessage(true)} size={WINDOW_WIDTH * .25} />
+            }
             <Button onClick={showWordsList} size={WINDOW_WIDTH * .25 * .5} icon='close' />
           </View>
-          <Image
-            source={require('./assets/grid.png')}
-            style={{
-              position: 'absolute', 
-              left: WINDOW_WIDTH * .1, 
-              top: ((WINDOW_WIDTH * (aspectRatio)) / 2) - (WINDOW_WIDTH * .8 / 2), 
-              height: WINDOW_WIDTH * .8, 
-              width: WINDOW_WIDTH * .8
-            }}
-          />
+          {!showCameraMessage &&
+            <Image
+              source={require('./assets/grid.png')}
+              style={{
+                position: 'absolute', 
+                left: WINDOW_WIDTH * .1, 
+                top: ((WINDOW_WIDTH * (aspectRatio)) / 2) - (WINDOW_WIDTH * .8 / 2), 
+                height: WINDOW_WIDTH * .8, 
+                width: WINDOW_WIDTH * .8
+              }}
+            />
+          }
         </View>
       </View>
     );
