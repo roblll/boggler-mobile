@@ -11,6 +11,7 @@ import Button from './components/Button';
 import WordsList, { WordsByLength } from './components/WordsList';
 import Loading from './components/Loading';
 import Restart from './components/Restart';
+import CameraDisabled from './components/CameraDisabled';
 
 let WINDOW_WIDTH = Dimensions.get('window').width;
 if (WINDOW_WIDTH > 450) {
@@ -30,7 +31,7 @@ const App = () => {
   const [count, setCount] = useState<string>("0");
   const [board, setBoard] = useState([["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"]]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [showRestart, setShowRestart] = useState<boolean>(true);
+  const [showRestart, setShowRestart] = useState<boolean>(false);
 
   useEffect(() => {
     onHandlePermission();
@@ -142,7 +143,11 @@ const App = () => {
   }
 
   if (!hasPermission) {
-    return <View></View>
+    if (showCamera) {
+      return <CameraDisabled showWordsList={() => showWordsList()} />
+    } else {
+      <WordsList words={words} count={count} board={board} solveNewGame={solveNewGame} updateWords={updateWords} />
+    }
   }
 
   if (showRestart) {
