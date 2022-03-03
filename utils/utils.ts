@@ -1,5 +1,4 @@
 import Constants from 'expo-constants';
-import Board from '../components/Board';
 import { A } from '../words/a';
 import { B } from '../words/b';
 import { C } from '../words/c';
@@ -27,7 +26,6 @@ import { X } from '../words/x';
 import { Y } from '../words/y';
 import { Z } from '../words/z';
 const directions = [[-1,0], [-1,1], [0,1], [1,1], [1,0], [1,-1], [0,-1], [-1,-1]];
-type Letters = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z';
 type Trie = {
   [key: string]: {};
 }

@@ -86,14 +86,21 @@ const App = () => {
             method: 'POST'
           })
           const { board } = await response.json()
-          setBoard(board)
+          await loadPictureBoard(board)
           setLoading(false)
-          setShowCamera(false)
         }
       } catch (err) {
         setLoading(false)
       }
     }
+  }
+
+  const loadPictureBoard = async (board: string[][]) => {
+    const {foundWords, count} = findWords(TRIE, board);
+    setWords(foundWords)
+    setCount(count)
+    setBoard(board)
+    setShowCamera(false)
   }
 
   const prepareRatio = async () => {
