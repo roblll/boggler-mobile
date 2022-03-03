@@ -86,9 +86,6 @@ const App = () => {
             method: 'POST'
           })
           const { board } = await response.json()
-          const {foundWords, count} = findWords(TRIE, board);
-          setWords(foundWords)
-          setCount(count)
           setBoard(board)
           setLoading(false)
           setShowCamera(false)
