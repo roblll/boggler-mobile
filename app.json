@@ -2,7 +2,7 @@
   "expo": {
     "name": "Boggler",
     "slug": "boggler",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -18,7 +18,10 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.rbzla.boggler"
+      "bundleIdentifier": "com.rbzla.boggler",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This allows the app to take photos for solving the game board. Photos are deleted after processing."
+      }
     },
     "android": {
       "adaptiveIcon": {
