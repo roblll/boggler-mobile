@@ -29,7 +29,7 @@
         "backgroundColor": "#f4d456"
       },
       "package": "com.rbzla.boggler",
-      "permissions": [],
+      "permissions": ["CAMERA"],
       "versionCode": 1
     },
     "web": {
