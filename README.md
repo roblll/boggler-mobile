@@ -1,10 +1,10 @@
-# Boggler
+# Boggler - Mobile App
 
 Mobile app available on iOS and Android
 
 App Store - Apple - https://apps.apple.com/us/app/boggler/id1609487300
 
-Google Play - https://play.google.com/store/apps/details?id=com.rbzla.boggler&hl=en_US&gl=US
+Play Store - Google - https://play.google.com/store/apps/details?id=com.rbzla.boggler&hl=en_US&gl=US
 
 ## Description
 
@@ -13,3 +13,5 @@ Instantly find all words in Boggle. Simply take a picture and the app will searc
 ## Implementation of Mobile App
 
 The mobile app uses a Trie (Prefix Tree) data structure to efficiently find all possible words on the board. The dictionary contains 175,281 words. The camera had to be adjusted to consistently frame the board for proper processing. The mobile app was built using the open source frameworks, React Native and Expo. This allows the app to be built simultaneously for iOS and Android.
+
+Built using: TypeScript, React Native, Expo
