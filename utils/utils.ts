@@ -84,7 +84,9 @@ const backtrack = (r: number, c: number, parent: Trie, board: string[][], words:
   const letter = board[r][c]
   let node: any = parent[letter]
   if (letter == 'q') {
-    node = node['u']
+    if (node['u']) {
+      node = node['u']
+    }
   }
   if ('#' in node) {
     words.add(node['#'])
